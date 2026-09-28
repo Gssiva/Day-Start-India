@@ -1,0 +1,7 @@
+node_modules/
+.pnpm-store/
+.env
+.env.*
+!.env.example
+*.log
+.prd-review/

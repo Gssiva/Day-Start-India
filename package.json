@@ -1,0 +1,16 @@
+{
+  "name": "daystart-agri-construction-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "DayStart Agriculture and Construction booking prototype with Hindsight memory.",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@vectorize-io/hindsight-client": "latest"
+  }
+}

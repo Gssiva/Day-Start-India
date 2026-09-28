@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@vectorize-io/hindsight-client':
+        specifier: latest
+        version: 0.10.1
+
+packages:
+
+  '@vectorize-io/hindsight-client@0.10.1':
+    resolution: {integrity: sha512-83FsMz/FyFwKooN1KsBZq4cWLB4RJQcTTnmxpZ0n4bXZih1iySLCtR88OAuqhqSnT3ajw4Nx5Oa8OwrrBuI6Lw==}
+
+snapshots:
+
+  '@vectorize-io/hindsight-client@0.10.1': {}
