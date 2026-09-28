@@ -82,12 +82,3 @@ Hindsight can suggest what a coordinator should verify, such as a previously loc
 Use a synthetic Construction site `KOM-17` and a repeat tile-work job. First load a prior-job event into the configured Hindsight bank and recall it for the site. Show the dated site-access note and source. Then create a three-worker booking, show the ₹2,547 quote, ₹764.10 simulated advance, and the nearest eligible workers. Complete the booking with a new site outcome and retain it. Recall again to show both the old and new evidence, then explain that the coordinator confirms current conditions and the normal assignment algorithm remains in control.
 
 For the recorded video, keep the sequence short: problem, first booking with no memory, retained event, repeat booking with actual Hindsight recall/reflect, and one clear lesson. The local fallback mode is suitable for UI development only; the final judged demo should show the connected Hindsight status and actual Hindsight operations.
-
-## Hackathon submission checklist
-
-- Clean, documented GitHub repository with setup instructions and the Hindsight integration.
-- Live demo for judges, including a real Hindsight-connected memory trace.
-- Public 2–5 minute team demo video showing retain and recall; do not imply the local fallback is Hindsight.
-- Explain how memory changes a repeat booking, with sources and an honest limitation.
-- Follow the content guide separately: each team member publishes an English article and social post; the team publishes one public demo video. The guide gives inconsistent article lengths, so target its stated submission range of 800–1,500 words.
-- Clearly label synthetic data and simulated payment; do not make unverified market, revenue, or performance claims.
