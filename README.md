@@ -1,6 +1,6 @@
 # DayStart India — Memory-Aware Workforce Coordination Agent
 
-> **Hack With Hyderabad 3.0** · Track: *AI Agents That Learn Using Hindsight*  
+> **Backbone Of India** · Track: *AI Agents That Learn Using Hindsight*  
 > Persistent Operational Memory for Agriculture & Construction Workforce Coordination
 
 ---
@@ -164,47 +164,7 @@ The test suite verifies:
 
 ---
 
-## 8. Hackathon 90-Second Demo Script
-
-Follow this sequence to demonstrate DayStart India to hackathon judges:
-
-1. **Step 1: Show the Problem & Clean Baseline (Before Memory)**
-   - Click **Clear Memory (Test 'Before Memory' State)**.
-   - Select **Construction · Kompally site (KOM-17) · Tile work · 3 workers**.
-   - Show the **DayStart India AI Agent** card:
-     - Badge displays: `BASELINE · 0 HISTORICAL RECORDS`.
-     - Directives show standard generic baseline checks (verify scope upon arrival, verify entrance 2 hours prior).
-
-2. **Step 2: Dispatch & Complete Booking #1**
-   - Click **Confirm Crew & Dispatch Booking**.
-   - 3 verified workers are assigned deterministically within 10 km.
-   - Click **Complete Job** on the booking.
-   - Enter operational outcome:  
-     *"East entrance was locked by building security without notice; crew waited 45 minutes until West gate was opened. West gate confirmed usable. Pre-staging mortar by 8:30 AM recommended."*
-   - Click **Complete & Retain in Hindsight**.
-
-3. **Step 3: Repeat Booking (After Memory Accumulated)**
-   - Return to the booking desk. Select **Construction · Kompally site**.
-   - Notice the AI Agent immediately switches to:
-     - Badge: `MEMORY-INFORMED · 1 HISTORICAL RECORD`.
-     - Recalled citation: `Source: Completed booking · DS-XXXX`.
-     - Actionable directives:
-       - **Site Access**: *"Direct crew strictly to West Gate for site entry. Avoid East entrance due to documented security lockouts."*
-       - **Material Readiness**: *"Request customer pre-stages dry mortar mix by 8:30 AM to prevent idle crew wait time."*
-   - Highlight the **Coordinator Review**: Click **✓ Accept Plan** or **✎ Edit Directives**.
-
-4. **Step 4: Multi-Site Accumulated Memory**
-   - Click **⚡ Load 8 Synthetic Prior-Job Records**.
-   - Switch between **Kompally (Construction)**, **Shamshabad (Agriculture)**, and **Medchal (Construction)**.
-   - Show how the AI Agent provides distinct, context-specific operational plans (e.g. 6:00 AM heat avoidance in Shamshabad, vehicle height clearance barriers in Medchal).
-
-5. **Step 5: Verify Deterministic Worker Guardrail**
-   - Navigate to the **Worker Roster** tab.
-   - Point out that workers Mohan V. (rating 2.8) and Naveen T. (offline) remain strictly excluded from dispatch regardless of memory context.
-
----
-
-## 9. Environment Variables
+## 8. Environment Variables
 
 | Variable | Default | Purpose |
 |---|---|---|
@@ -214,7 +174,7 @@ Follow this sequence to demonstrate DayStart India to hackathon judges:
 
 ---
 
-## 10. Limitations & Honest Scope
+## 9. Limitations & Honest Scope
 
 - **Prototype Payment**: Payment calculations (30% advance, 70% balance) are simulated for demonstration; no real financial transactions are executed.
 - **Hyderabad Pilot Scope**: The prototype models verified worker rosters across 4 Hyderabad operating clusters (Kompally, Shamshabad, Medchal, Chevella) for Agriculture and Construction.
@@ -224,4 +184,4 @@ Follow this sequence to demonstrate DayStart India to hackathon judges:
 
 ## License
 
-Built for **Hack With Hyderabad 3.0** by the DayStart India team.
+Built for **India** by the DayStart India team.
