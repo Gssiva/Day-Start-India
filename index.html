@@ -4,153 +4,1283 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <title>DayStart | Agriculture and Construction Workforce</title>
+  <title>DayStart India | Memory-Aware Workforce Coordination Agent</title>
   <style>
-    :root{--ink:#161817;--sub:#68716c;--line:#e8e9e6;--paper:#fff;--bg:#f7f7f5;--red:#c8001a;--red-dark:#a90016;--red-soft:#fff0f1;--green:#236c4b;--green-soft:#eaf4ed;--amber:#986112;--amber-soft:#fff5e5;--blue:#536979;--blue-soft:#eef3f6;--shadow:0 4px 18px rgba(25,31,26,.045);--font-ui:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--radius-card:12px;--radius-control:8px;--space-unit:8px}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Outfit,Inter,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}button:disabled{opacity:.55;cursor:not-allowed}svg{display:block}.layout{min-height:100vh;display:grid;grid-template-columns:230px minmax(0,1fr)}
-    .side{background:var(--paper);border-right:1px solid var(--line);padding:24px 14px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;align-items:center;gap:10px;padding:0 9px}.brand-mark{width:37px;height:37px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;position:relative;font-size:11px;font-weight:800;letter-spacing:-1px}.brand-mark:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--red);right:-2px;top:0;border:2px solid white}.brand-word{font-size:19px;font-weight:800;letter-spacing:-.7px;line-height:1}.brand-word span:last-child{color:var(--red)}.brand-caption{font-size:9px;letter-spacing:1.1px;color:#929892;text-transform:uppercase;margin-top:4px}.side-kicker{font-size:9px;font-weight:800;letter-spacing:1.35px;color:#9ba19c;padding:0 10px;margin-bottom:6px}.nav{display:grid;gap:4px}.nav button{display:flex;align-items:center;gap:11px;padding:10px 11px;border:0;border-radius:9px;text-align:left;background:transparent;color:#5c655f;font-size:12px}.nav button:hover,.nav button.active{background:var(--red-soft);color:var(--red);font-weight:700}.nav svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.7;fill:none}.nav .nav-count{margin-left:auto;font-size:9px;color:#8e9690}.side-bottom{margin-top:auto}.pilot-box{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fcfcfb}.pilot-box b{font-size:11px;display:block}.pilot-box span{font-size:10px;color:var(--sub)}.user{display:flex;align-items:center;gap:9px;margin:15px 6px 0}.avatar{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#f6e7e8;color:var(--red);font-size:10px;font-weight:800}.user b{display:block;font-size:11px}.user small{font-size:9px;color:var(--sub)}
-    main{min-width:0}.topbar{height:62px;border-bottom:1px solid var(--line);background:#ffffffed;display:flex;align-items:center;justify-content:space-between;padding:0 29px;position:sticky;top:0;z-index:3;backdrop-filter:blur(9px)}.crumb{font-size:11px;color:var(--sub)}.crumb b{color:var(--ink)}.top-right{display:flex;align-items:center;gap:12px}.memory-status{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid var(--line);border-radius:99px;background:white;font-size:9px;color:#59635c;font-weight:700}.status-dot{width:6px;height:6px;background:#c28b33;border-radius:50%}.memory-status.connected .status-dot{background:#359462}.top-date{font-size:10px;color:var(--sub)}.mobile-menu{display:none;border:0;background:none;font-size:18px}.content{max-width:1450px;padding:27px 30px 42px;margin:0 auto}.prototype-strip{display:flex;gap:9px;align-items:center;color:#666d68;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:10px;margin-bottom:17px}.prototype-strip strong{color:var(--red)}.page{display:none}.page.active{display:block}.heading{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin-bottom:19px}.eyebrow{font-size:9px;color:var(--red);font-weight:800;letter-spacing:1.2px;text-transform:uppercase}.heading h1{font-size:25px;letter-spacing:-.8px;margin:4px 0 1px}.heading p{font-size:11px;color:var(--sub);margin:0}.actions{display:flex;gap:8px;align-items:center}.btn{border:1px solid #dedfdb;border-radius:8px;background:white;padding:8px 11px;font-size:10px;font-weight:700;box-shadow:0 1px 2px #00000006}.btn:hover{border-color:#c3c6c1}.btn.red{background:var(--red);border-color:var(--red);color:white}.btn.red:hover{background:var(--red-dark)}.btn.soft{color:var(--red);background:var(--red-soft);border-color:#f8d9dd}.btn.link{border:0;box-shadow:none;color:var(--red);padding:5px;background:none}.btn.tiny{padding:6px 8px;font-size:9px}.btn.block{width:100%}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:15px}.metric{border:1px solid var(--line);background:white;border-radius:11px;padding:13px 15px;box-shadow:var(--shadow)}.metric-label{font-size:10px;color:var(--sub);display:flex;justify-content:space-between}.metric-icon{width:22px;height:22px;border-radius:7px;background:#f5f5f2;display:grid;place-items:center;color:var(--red)}.metric-icon svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.7}.metric strong{font-size:21px;letter-spacing:-.5px;display:block;margin:7px 0 0}.metric small{font-size:9px;color:var(--sub)}.metric small.warn{color:var(--amber)}
-    .columns{display:grid;grid-template-columns:minmax(0,1.48fr) minmax(305px,.82fr);gap:14px;align-items:start}.stack{display:grid;gap:13px}.card{border:1px solid var(--line);background:white;border-radius:12px;box-shadow:var(--shadow);overflow:hidden}.card-head{padding:14px 16px 11px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.card-head h2{font-size:12px;margin:0;letter-spacing:-.1px}.card-head p{font-size:9px;color:var(--sub);margin:3px 0 0}.tag{border-radius:99px;padding:4px 7px;background:#f4f4f1;color:#68716b;font-size:8px;font-weight:800;letter-spacing:.35px;white-space:nowrap}.tag.red{background:var(--red-soft);color:var(--red)}.tag.green{background:var(--green-soft);color:var(--green)}.divider{height:1px;background:var(--line)}
-    .booking-form{padding:0 16px 15px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:grid;gap:4px;margin-bottom:10px}.field label{font-size:9px;font-weight:750;color:#4d5650}.field input,.field select,.field textarea{width:100%;border:1px solid #e1e3df;background:#fff;border-radius:7px;padding:8px 9px;font-size:10px;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{border-color:#d55c69;box-shadow:0 0 0 2px #c8001a12}.field textarea{resize:vertical;min-height:65px}.field-note{font-size:8px;color:#858d87}.service-choice{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:1px 0 12px}.service-option{display:flex;align-items:center;gap:10px;text-align:left;padding:10px;border:1px solid var(--line);border-radius:9px;background:white}.service-option.selected{border:1.5px solid var(--red);background:#fff8f8;box-shadow:0 0 0 2px #c8001a0d}.service-art{width:33px;height:33px;border-radius:9px;background:var(--red-soft);color:var(--red);display:grid;place-items:center;flex:none}.service-art svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.service-option b{display:block;font-size:10px}.service-option small{display:block;font-size:8px;color:var(--sub);margin-top:2px}.form-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:3px}.price-summary{font-size:9px;color:var(--sub)}.price-summary b{font-size:12px;color:var(--ink)}.price-summary span{display:block}.smallprint{font-size:8px;color:#8a918b}
-    .memory-panel{margin:0 13px 13px;border:1px solid #eee0e1;border-radius:9px;background:#fffafb;padding:11px}.memory-panel-head{display:flex;justify-content:space-between;align-items:center;gap:6px}.memory-panel-title{display:flex;align-items:center;gap:7px}.memory-symbol{width:23px;height:23px;border-radius:7px;background:var(--red);color:white;display:grid;place-items:center}.memory-symbol svg{width:13px;height:13px;stroke:white;fill:none;stroke-width:1.6}.memory-panel-title b{font-size:10px;display:block}.memory-panel-title small{font-size:8px;color:var(--sub)}.memory-controls{display:flex;gap:6px;margin-top:9px}.memory-controls .btn{font-size:8px;padding:6px 8px}.memory-result{margin-top:9px;border-top:1px solid #f0e7e7;padding-top:8px}.memory-empty{font-size:9px;line-height:1.5;color:#69736c}.memory-item{background:#fff;border:1px solid #f0e9e9;border-radius:7px;padding:8px;margin-top:6px}.memory-item p{font-size:9px;margin:0;color:#414a44;line-height:1.5}.memory-source{font-size:8px;color:var(--red);font-weight:750;display:block;margin-top:5px}.reflect{font-size:9px;color:#536059;line-height:1.5;background:#fff;padding:8px;border-radius:7px;margin-top:7px}.memory-note{font-size:8px;color:#818983;margin-top:8px}.worker-pool{padding:0 15px 11px}.worker-row{display:grid;grid-template-columns:28px minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid #f0f0ed}.worker-row:last-child{border:0}.worker-avatar{width:27px;height:27px;border-radius:50%;background:#f4f0ea;display:grid;place-items:center;color:#6d5840;font-size:8px;font-weight:800}.worker-row b{font-size:9px;display:block}.worker-row small{font-size:8px;color:var(--sub)}.worker-rating{font-size:8px;color:#94701f}.worker-distance{font-size:8px;color:var(--sub);text-align:right}.list-wrap{padding:0 15px 12px}.booking-row{display:grid;grid-template-columns:minmax(0,1.4fr) .8fr .75fr auto;gap:10px;align-items:center;border-top:1px solid #f0f0ed;padding:11px 0}.booking-row b{display:block;font-size:9px}.booking-row small{font-size:8px;color:var(--sub)}.status{font-size:8px;font-weight:750;padding:4px 7px;border-radius:99px;white-space:nowrap}.status.assigned{background:var(--green-soft);color:var(--green)}.status.needs_coordinator{background:var(--amber-soft);color:var(--amber)}.status.completed{background:var(--blue-soft);color:var(--blue)}.status.cancelled{background:#f2f2f0;color:#777}.empty{padding:25px 10px;text-align:center;color:var(--sub);font-size:10px}.empty b{color:var(--ink);display:block;font-size:11px;margin-bottom:3px}.key-value{display:grid;grid-template-columns:1fr auto;gap:6px;padding:0 15px 14px;font-size:9px}.key-value span{color:var(--sub)}.key-value b{font-size:9px;text-align:right}.memory-list{padding:0 15px 14px;display:grid;gap:8px}.memory-log{border:1px solid #ededeb;border-radius:8px;padding:9px}.memory-log-head{display:flex;justify-content:space-between;gap:7px}.memory-log b{font-size:9px}.memory-log p{font-size:8px;color:var(--sub);margin:4px 0 0;line-height:1.5}.hint{font-size:8px;color:#818982;padding:0 15px 13px;line-height:1.5}.veil{position:fixed;inset:0;background:#14161555;z-index:5;display:none;place-items:center;padding:15px}.veil.open{display:grid}.modal{background:white;border-radius:12px;width:min(480px,100%);box-shadow:0 20px 55px #0003;overflow:hidden}.modal-head{padding:15px 17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.modal-head h2{font-size:13px;margin:0}.modal-body{padding:15px 17px}.modal-footer{padding:12px 17px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px}.close{border:0;background:none;font-size:17px;color:var(--sub)}.toast{position:fixed;z-index:9;right:22px;bottom:22px;max-width:340px;background:#262b27;color:white;padding:10px 13px;border-radius:8px;font-size:10px;box-shadow:0 8px 28px #0003;opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}.guide{padding:0 15px 15px;display:grid;gap:9px}.guide-step{display:grid;grid-template-columns:22px 1fr;gap:8px}.stepno{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);color:var(--red);font-size:9px;font-weight:800}.guide-step b{font-size:9px;display:block}.guide-step span{font-size:8px;color:var(--sub)}
-    .menu-icon{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7}.close{border:0;background:none;color:var(--sub);padding:4px}.close svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8}.rate{display:inline-flex;align-items:center;gap:3px;color:#a27427}.rate svg,.worker-row b svg{width:10px;height:10px;stroke:currentColor;fill:#f4d277;stroke-width:1.3;display:inline-block;vertical-align:-1px}
-    @media(max-width:1030px){.layout{grid-template-columns:205px minmax(0,1fr)}.content{padding:23px 18px}.columns{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}}@media(max-width:690px){.layout{display:block}.side{position:fixed;z-index:6;left:-240px;top:0;bottom:0;width:230px;transition:left .18s;box-shadow:6px 0 25px #0002}.side.open{left:0}.topbar{height:55px;padding:0 13px}.mobile-menu{display:block;margin-right:7px}.crumb{display:flex;align-items:center}.top-date{display:none}.content{padding:19px 12px 30px}.heading{align-items:flex-start}.heading h1{font-size:22px}.heading>.actions{flex-direction:column;align-items:stretch}.metrics{gap:8px}.metric{padding:11px}.metric strong{font-size:19px}.field-grid{grid-template-columns:1fr 1fr;gap:7px}.booking-row{grid-template-columns:1fr auto;gap:6px}.booking-row .booking-meta{display:none}.booking-row .status{justify-self:end}.booking-row .row-actions{grid-column:2}.memory-status{font-size:8px}.prototype-strip{font-size:9px}.top-right{gap:7px}}
-    /* DayStart visual refresh: existing brand/status palette and all interactions retained. */
-    body{font-family:var(--font-ui);font-size:14px;line-height:1.55;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
-    .layout{grid-template-columns:248px minmax(0,1fr)}
-    .side{padding:20px 16px 18px;gap:26px;box-shadow:1px 0 0 rgba(22,24,23,.025)}
-    .brand{min-height:96px;justify-content:flex-start;padding:0 2px}
-    .brand-logo{display:block;width:112px;height:112px;object-fit:contain;object-position:center}
-    .nav{gap:3px}.nav button{min-height:42px;padding:10px 12px;border-radius:8px;font-size:13px;transition:background-color .18s,color .18s,transform .18s}
-    .nav button:hover{transform:translateX(2px)}.nav button.active{background:var(--red-soft)}
-    .side-kicker{font-size:10px;letter-spacing:1px;margin:0 0 8px}.pilot-box{border:0;background:#f8f8f6;padding:14px;border-radius:10px}.pilot-box b{font-size:12px}.pilot-box span{font-size:11px}
-    .user{margin:16px 6px 0}.user b{font-size:12px}.user small{font-size:10px}
-    .topbar{height:68px;padding:0 36px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}.crumb{font-size:12px}.top-date{font-size:11px}.top-right{gap:16px}.memory-status{font-size:10px;padding:6px 10px}
-    .content{padding:32px 36px 52px;max-width:1500px}.prototype-strip{border:0;background:#fff;padding:11px 14px;border-radius:9px;font-size:11px;margin-bottom:24px}
-    .heading{margin-bottom:24px;align-items:center}.eyebrow{font-size:10px;letter-spacing:1px}.heading h1{font-size:29px;line-height:1.2;letter-spacing:-1.1px;margin:8px 0 5px}.heading p{font-size:13px;line-height:1.55;max-width:720px}
-    .actions{gap:9px}.btn{min-height:38px;padding:9px 14px;border-radius:8px;font-size:12px;font-weight:650;box-shadow:none;transition:background-color .16s,border-color .16s,color .16s,transform .16s,box-shadow .16s}.btn:hover{transform:translateY(-1px);box-shadow:0 3px 9px rgba(22,24,23,.07)}.btn:active{transform:translateY(0)}.btn.red{box-shadow:0 1px 2px rgba(200,0,26,.13)}.btn.tiny{min-height:31px;font-size:10px;padding:7px 10px}
-    :where(button,input,select,textarea):focus-visible{outline:3px solid rgba(200,0,26,.3);outline-offset:2px}
-    .metrics{gap:14px;margin-bottom:20px}.metric{border:0;border-radius:var(--radius-card);padding:18px 20px;box-shadow:0 1px 3px rgba(25,31,26,.05),0 5px 18px rgba(25,31,26,.035)}.metric-label{font-size:11px;align-items:center}.metric-icon{width:30px;height:30px;border-radius:9px}.metric-icon svg{width:16px;height:16px}.metric strong{font-size:27px;margin:12px 0 2px;letter-spacing:-.8px}.metric small{font-size:11px}
-    .columns{gap:18px}.stack{gap:16px}.card{border:0;border-radius:var(--radius-card);box-shadow:0 1px 3px rgba(25,31,26,.05),0 6px 22px rgba(25,31,26,.035)}.card-head{padding:19px 20px 15px}.card-head h2{font-size:14px;letter-spacing:-.2px}.card-head p{font-size:11px;margin-top:4px}.tag{font-size:9px;padding:5px 8px}
-    .divider{height:0;background:transparent}.booking-form{padding:2px 20px 20px}.field-grid{gap:16px}.field{gap:6px;margin-bottom:13px}.field label{font-size:11px;color:#4d5650}.field input,.field select,.field textarea{min-height:40px;padding:9px 11px;font-size:12px;border-color:#e7e8e5;border-radius:var(--radius-control);transition:border-color .16s,box-shadow .16s}.field input:focus,.field select:focus,.field textarea:focus{border-color:#d55c69;box-shadow:0 0 0 3px #c8001a12}.field-note{font-size:10px}.field textarea{min-height:78px}
-    .service-choice{gap:12px;margin:4px 0 16px}.service-option{padding:13px;border:1px solid #ececea;border-radius:10px;transition:border-color .16s,background-color .16s,box-shadow .16s}.service-option:hover{border-color:#e4a9ae}.service-option.selected{border-width:1px}.service-art{width:38px;height:38px;border-radius:10px}.service-option b{font-size:12px}.service-option small{font-size:10px}
-    .form-footer{margin-top:7px}.price-summary{font-size:11px}.price-summary b{font-size:14px}.smallprint{font-size:10px}
-    .memory-panel{margin:0 16px 16px;border:0;border-radius:10px;padding:14px}.memory-panel-title b{font-size:12px}.memory-panel-title small{font-size:10px}.memory-controls{gap:8px;margin-top:12px}.memory-controls .btn{font-size:10px;padding:8px 10px}.memory-result{border:0;padding-top:4px}.memory-empty{font-size:11px}.memory-item{border:0;background:#fff;padding:10px}.memory-item p{font-size:11px}.memory-source{font-size:9px}.reflect{font-size:10px;padding:10px}.memory-note{font-size:9px}
-    .worker-pool{padding:0 20px 16px}.worker-row{grid-template-columns:34px minmax(0,1fr) auto auto;gap:11px;padding:12px 0;border:0}.worker-row+.worker-row{box-shadow:none}.worker-avatar{width:32px;height:32px;font-size:9px}.worker-row b{font-size:11px}.worker-row small,.worker-rating,.worker-distance{font-size:10px}
-    .list-wrap{padding:0 20px 18px}.booking-row{grid-template-columns:minmax(0,1.4fr) .8fr .75fr auto;gap:12px;border:0;padding:13px 0}.booking-row+.booking-row{box-shadow:none}.booking-row b{font-size:11px}.booking-row small{font-size:10px}.status{font-size:9px;padding:5px 8px}.empty{padding:32px 12px;font-size:12px}.empty b{font-size:13px}
-    .key-value{padding:0 20px 18px;font-size:11px;gap:9px}.key-value b{font-size:11px}.memory-list{padding:0 20px 18px;gap:9px}.memory-log{border:0;background:#f8f8f6;border-radius:9px;padding:11px}.memory-log b{font-size:11px}.memory-log p{font-size:10px}.hint{font-size:10px;padding:0 20px 17px}
-    .guide{padding:0 20px 20px;gap:12px}.guide-step{grid-template-columns:26px 1fr;gap:10px}.stepno{width:24px;height:24px;font-size:10px}.guide-step b{font-size:11px}.guide-step span{font-size:10px}
-    .modal{border-radius:13px}.modal-head{padding:18px 20px}.modal-head h2{font-size:15px}.modal-body{padding:20px}.modal-footer{padding:15px 20px}.close{border-radius:7px;transition:background-color .16s}.close:hover{background:#f5f5f2}.toast{font-size:12px;padding:12px 15px;border-radius:9px}
-    @media(max-width:1030px){.layout{grid-template-columns:220px minmax(0,1fr)}.content{padding:26px 24px 40px}.topbar{padding:0 24px}.columns{grid-template-columns:1fr}.metrics{gap:12px}}
-    @media(max-width:690px){.side{width:260px;left:-270px;padding:20px 16px;gap:22px}.side.open{left:0}.brand{min-height:90px}.brand-logo{width:106px;height:106px}.topbar{height:58px;padding:0 14px}.content{padding:20px 14px 32px}.prototype-strip{padding:10px 12px;margin-bottom:19px;align-items:flex-start}.heading{align-items:flex-start;flex-direction:column;gap:14px}.heading h1{font-size:24px}.heading p{font-size:12px}.heading>.actions{width:100%;flex-direction:row;align-items:center}.metrics{gap:10px}.metric{padding:14px}.metric strong{font-size:22px}.metric-label{font-size:10px}.metric small{font-size:10px}.card-head{padding:16px 16px 13px}.booking-form{padding:2px 16px 16px}.field-grid{grid-template-columns:1fr 1fr;gap:9px}.field input,.field select{font-size:11px;padding:8px}.service-choice{gap:8px}.service-option{padding:10px;gap:8px}.service-art{width:32px;height:32px}.service-option b{font-size:11px}.service-option small{font-size:9px}.list-wrap{padding:0 16px 14px}.booking-row{grid-template-columns:minmax(0,1fr) auto;gap:8px}.booking-row .booking-meta{display:none}.worker-pool{padding:0 16px 14px}.memory-panel{margin:0 12px 12px}.top-right{gap:7px}.memory-status{font-size:8px;padding:5px 7px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+    :root{
+      --ink:#161817;--sub:#68716c;--line:#e8e9e6;--paper:#fff;--bg:#f7f7f5;
+      --red:#c8001a;--red-dark:#a90016;--red-soft:#fff0f1;
+      --green:#236c4b;--green-soft:#eaf4ed;
+      --amber:#986112;--amber-soft:#fff5e5;
+      --blue:#335b7e;--blue-soft:#eef4fa;
+      --purple:#663399;--purple-soft:#f5f0fa;
+      --shadow:0 4px 18px rgba(25,31,26,.045);
+      --font-ui:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+      --radius-card:12px;--radius-control:8px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:14px;line-height:1.55;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer;color:inherit}
+    button:disabled{opacity:.55;cursor:not-allowed}
+    svg{display:block}
+    .layout{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}
+    .side{background:var(--paper);border-right:1px solid var(--line);padding:20px 16px 18px;display:flex;flex-direction:column;gap:24px;box-shadow:1px 0 0 rgba(22,24,23,.025)}
+    .brand{display:flex;align-items:center;gap:10px;padding:0 2px;min-height:70px}
+    .brand-logo{display:block;width:95px;height:95px;object-fit:contain}
+    .side-kicker{font-size:10px;font-weight:800;letter-spacing:1px;color:#9ba19c;padding:0 10px;margin-bottom:6px}
+    .nav{display:grid;gap:3px}
+    .nav button{display:flex;align-items:center;gap:11px;min-height:40px;padding:10px 12px;border:0;border-radius:8px;text-align:left;background:transparent;color:#5c655f;font-size:13px;transition:background-color .18s,color .18s,transform .18s}
+    .nav button:hover{transform:translateX(2px);background:#f6f6f4;color:var(--ink)}
+    .nav button.active{background:var(--red-soft);color:var(--red);font-weight:700}
+    .nav svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.7;fill:none}
+    .nav .nav-count{margin-left:auto;font-size:9px;color:#8e9690}
+    .side-bottom{margin-top:auto}
+    .pilot-box{padding:14px;border-radius:10px;background:#f8f8f6}
+    .pilot-box b{font-size:12px;display:block}
+    .pilot-box span{font-size:11px;color:var(--sub)}
+    .user{display:flex;align-items:center;gap:9px;margin:16px 6px 0}
+    .avatar{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#f6e7e8;color:var(--red);font-size:10px;font-weight:800}
+    .user b{display:block;font-size:12px}
+    .user small{font-size:10px;color:var(--sub)}
+
+    main{min-width:0}
+    .topbar{height:68px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:sticky;top:0;z-index:3;backdrop-filter:blur(12px)}
+    .crumb{font-size:12px;color:var(--sub)}
+    .crumb b{color:var(--ink)}
+    .top-right{display:flex;align-items:center;gap:16px}
+    .memory-status{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border:1px solid var(--line);border-radius:99px;background:white;font-size:10px;color:#59635c;font-weight:700}
+    .status-dot{width:7px;height:7px;background:#c28b33;border-radius:50%}
+    .memory-status.connected .status-dot{background:#236c4b}
+    .top-date{font-size:11px;color:var(--sub)}
+    .mobile-menu{display:none;border:0;background:none;font-size:18px}
+    .content{max-width:1500px;padding:30px 36px 52px;margin:0 auto}
+    .prototype-strip{display:flex;gap:10px;align-items:center;color:#666d68;background:#fff;border-radius:9px;padding:10px 14px;font-size:11px;margin-bottom:22px;border:1px solid var(--line)}
+    .prototype-strip strong{color:var(--red)}
+    .page{display:none}
+    .page.active{display:block}
+    .heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}
+    .eyebrow{font-size:10px;color:var(--red);font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+    .heading h1{font-size:27px;letter-spacing:-.8px;margin:5px 0 2px;line-height:1.2}
+    .heading p{font-size:12px;color:var(--sub);margin:0;max-width:760px}
+    .actions{display:flex;gap:8px;align-items:center}
+    .btn{min-height:36px;border:1px solid #dedfdb;border-radius:8px;background:white;padding:8px 13px;font-size:11px;font-weight:700;transition:all .16s}
+    .btn:hover{border-color:#c3c6c1;transform:translateY(-1px);box-shadow:0 3px 9px rgba(22,24,23,.06)}
+    .btn:active{transform:translateY(0)}
+    .btn.red{background:var(--red);border-color:var(--red);color:white}
+    .btn.red:hover{background:var(--red-dark)}
+    .btn.soft{color:var(--red);background:var(--red-soft);border-color:#f8d9dd}
+    .btn.purple{color:var(--purple);background:var(--purple-soft);border-color:#e4d6f5}
+    .btn.green{color:var(--green);background:var(--green-soft);border-color:#d4ebd9}
+    .btn.link{border:0;box-shadow:none;color:var(--red);padding:5px;background:none}
+    .btn.tiny{min-height:28px;padding:5px 9px;font-size:10px}
+    .btn.block{width:100%}
+
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:18px}
+    .metric{border:1px solid var(--line);background:white;border-radius:var(--radius-card);padding:16px 18px;box-shadow:var(--shadow)}
+    .metric-label{font-size:11px;color:var(--sub);display:flex;justify-content:space-between;align-items:center}
+    .metric-icon{width:26px;height:26px;border-radius:7px;background:#f5f5f2;display:grid;place-items:center;color:var(--red)}
+    .metric-icon svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.7}
+    .metric strong{font-size:25px;letter-spacing:-.6px;display:block;margin:9px 0 2px}
+    .metric small{font-size:10px;color:var(--sub)}
+
+    .columns{display:grid;grid-template-columns:minmax(0,1.48fr) minmax(320px,.84fr);gap:18px;align-items:start}
+    .stack{display:grid;gap:16px}
+    .card{border:1px solid var(--line);background:white;border-radius:var(--radius-card);box-shadow:var(--shadow);overflow:hidden}
+    .card-head{padding:16px 18px 13px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+    .card-head h2{font-size:13px;margin:0;letter-spacing:-.1px}
+    .card-head p{font-size:10px;color:var(--sub);margin:3px 0 0}
+    .tag{border-radius:99px;padding:4px 8px;background:#f4f4f1;color:#68716b;font-size:9px;font-weight:800;letter-spacing:.3px;white-space:nowrap}
+    .tag.red{background:var(--red-soft);color:var(--red)}
+    .tag.green{background:var(--green-soft);color:var(--green)}
+    .tag.amber{background:var(--amber-soft);color:var(--amber)}
+    .tag.blue{background:var(--blue-soft);color:var(--blue)}
+    .tag.purple{background:var(--purple-soft);color:var(--purple)}
+    .divider{height:1px;background:var(--line)}
+
+    .booking-form{padding:0 18px 18px}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:grid;gap:5px;margin-bottom:11px}
+    .field label{font-size:10px;font-weight:750;color:#4d5650}
+    .field input,.field select,.field textarea{width:100%;min-height:38px;border:1px solid #e1e3df;background:#fff;border-radius:var(--radius-control);padding:8px 10px;font-size:11px;outline:none;color:var(--ink);transition:all .16s}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:#d55c69;box-shadow:0 0 0 3px #c8001a12}
+    .field textarea{resize:vertical;min-height:72px}
+    .field-note{font-size:9px;color:#858d87}
+    .service-choice{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:2px 0 14px}
+    .service-option{display:flex;align-items:center;gap:11px;text-align:left;padding:12px;border:1px solid var(--line);border-radius:10px;background:white;transition:all .16s}
+    .service-option.selected{border:1.5px solid var(--red);background:#fff8f8;box-shadow:0 0 0 2px #c8001a0d}
+    .service-art{width:36px;height:36px;border-radius:9px;background:var(--red-soft);color:var(--red);display:grid;place-items:center;flex:none}
+    .service-art svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6}
+    .service-option b{display:block;font-size:11px}
+    .service-option small{display:block;font-size:9px;color:var(--sub);margin-top:2px}
+    .form-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px}
+    .price-summary{font-size:10px;color:var(--sub)}
+    .price-summary b{font-size:13px;color:var(--ink)}
+    .price-summary span{display:block}
+    .smallprint{font-size:9px;color:#8a918b}
+
+    /* AI AGENT CARD STYLES */
+    .agent-card{border:1.5px solid #e4d8ef;background:#fcfaff;margin:0 18px 18px;border-radius:12px;padding:16px;box-shadow:0 2px 12px rgba(102,51,153,.04)}
+    .agent-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+    .agent-title{display:flex;align-items:center;gap:9px}
+    .agent-badge-icon{width:28px;height:28px;border-radius:8px;background:var(--purple);color:white;display:grid;place-items:center}
+    .agent-badge-icon svg{width:15px;height:15px;stroke:white;fill:none;stroke-width:1.8}
+    .agent-title b{font-size:12px;display:block;color:#351a54}
+    .agent-title small{font-size:9px;color:#715592}
+    
+    .agent-loop{display:flex;gap:6px;align-items:center;margin:10px 0 14px;padding:8px 11px;background:#fff;border-radius:8px;border:1px solid #ebe4f3;font-size:9px;color:#67527e}
+    .loop-step{display:flex;align-items:center;gap:4px;font-weight:700}
+    .loop-sep{color:#cbb9de}
+    
+    .agent-summary{font-size:11px;line-height:1.55;color:#372b47;background:#fff;border:1px solid #efeaf5;border-radius:8px;padding:11px;margin-bottom:12px}
+    
+    .recalled-box{background:#fff;border:1px solid #e9e1f2;border-radius:8px;padding:11px;margin-bottom:13px}
+    .recalled-box-head{display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:750;color:#553b75;margin-bottom:7px}
+    .recalled-item{border-left:2.5px solid var(--purple);padding:5px 0 5px 9px;margin-bottom:7px}
+    .recalled-item:last-child{margin-bottom:0}
+    .recalled-item p{margin:0;font-size:10px;color:#40364d;line-height:1.45}
+    .recalled-source{display:inline-block;font-size:9px;color:var(--purple);font-weight:750;margin-top:3px}
+
+    .recommendations-box{display:grid;gap:9px;margin-bottom:14px}
+    .rec-card{background:#fff;border:1px solid #eae2f3;border-radius:9px;padding:11px;display:grid;gap:4px;transition:border-color .16s}
+    .rec-card:hover{border-color:#bca2de}
+    .rec-top{display:flex;justify-content:space-between;align-items:center}
+    .rec-cat{font-size:9px;font-weight:800;letter-spacing:.3px;padding:3px 7px;border-radius:99px;background:#f2ecfa;color:var(--purple)}
+    .rec-action{font-size:11px;font-weight:700;color:#221830;margin-top:2px}
+    .rec-reason{font-size:10px;color:#6d5f7f;line-height:1.4}
+
+    .coordinator-toolbar{background:#f5eefa;border:1px solid #e5d8f3;border-radius:9px;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .coordinator-status-label{font-size:10px;font-weight:750;color:#452869}
+    .coordinator-buttons{display:flex;gap:7px}
+
+    .worker-pool{padding:0 18px 14px}
+    .worker-row{display:grid;grid-template-columns:30px minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #f0f0ed}
+    .worker-row:last-child{border:0}
+    .worker-avatar{width:30px;height:30px;border-radius:50%;background:#f4f0ea;display:grid;place-items:center;color:#6d5840;font-size:9px;font-weight:800}
+    .worker-row b{font-size:10px;display:block}
+    .worker-row small{font-size:9px;color:var(--sub)}
+    .worker-distance{font-size:9px;color:var(--sub);text-align:right}
+
+    .list-wrap{padding:0 18px 16px}
+    .booking-row{display:grid;grid-template-columns:minmax(0,1.3fr) .75fr .7fr auto;gap:11px;align-items:center;border-top:1px solid #f0f0ed;padding:12px 0}
+    .booking-row b{display:block;font-size:10px}
+    .booking-row small{font-size:9px;color:var(--sub)}
+    .status{font-size:9px;font-weight:750;padding:4px 8px;border-radius:99px;white-space:nowrap}
+    .status.assigned{background:var(--green-soft);color:var(--green)}
+    .status.needs_coordinator{background:var(--amber-soft);color:var(--amber)}
+    .status.completed{background:var(--blue-soft);color:var(--blue)}
+    
+    .empty{padding:28px 10px;text-align:center;color:var(--sub);font-size:11px}
+    .empty b{color:var(--ink);display:block;font-size:12px;margin-bottom:3px}
+    .key-value{display:grid;grid-template-columns:1fr auto;gap:7px;padding:0 18px 16px;font-size:10px}
+    .key-value span{color:var(--sub)}
+    .key-value b{font-size:10px;text-align:right}
+
+    .memory-list{padding:0 18px 16px;display:grid;gap:9px}
+    .memory-log{border:1px solid #ededeb;background:#fafaf8;border-radius:9px;padding:11px}
+    .memory-log-head{display:flex;justify-content:space-between;gap:8px;margin-bottom:4px}
+    .memory-log b{font-size:10px}
+    .memory-log p{font-size:9px;color:#49534c;margin:4px 0 0;line-height:1.5}
+    .hint{font-size:9px;color:#818982;padding:0 18px 14px;line-height:1.5}
+
+    .veil{position:fixed;inset:0;background:#14161555;z-index:5;display:none;place-items:center;padding:15px}
+    .veil.open{display:grid}
+    .modal{background:white;border-radius:12px;width:min(500px,100%);box-shadow:0 20px 55px #0003;overflow:hidden}
+    .modal-head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+    .modal-head h2{font-size:14px;margin:0}
+    .modal-body{padding:18px}
+    .modal-footer{padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px}
+    .close{border:0;background:none;font-size:18px;color:var(--sub);cursor:pointer;padding:3px}
+    .close svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
+    .toast{position:fixed;z-index:9;right:22px;bottom:22px;max-width:380px;background:#262b27;color:white;padding:11px 15px;border-radius:9px;font-size:11px;box-shadow:0 8px 28px #0003;opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s}
+    .toast.show{opacity:1;transform:none}
+    .guide{padding:0 18px 18px;display:grid;gap:11px}
+    .guide-step{display:grid;grid-template-columns:24px 1fr;gap:9px}
+    .stepno{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);color:var(--red);font-size:10px;font-weight:800}
+    .guide-step b{font-size:10px;display:block}
+    .guide-step span{font-size:9px;color:var(--sub)}
+
+    .rate{display:inline-flex;align-items:center;gap:3px;color:#a27427}
+    .rate svg,.worker-row b svg{width:11px;height:11px;stroke:currentColor;fill:#f4d277;stroke-width:1.3;display:inline-block;vertical-align:-1px}
+
+    @media(max-width:1030px){
+      .layout{grid-template-columns:210px minmax(0,1fr)}
+      .content{padding:24px 20px}
+      .columns{grid-template-columns:1fr}
+      .metrics{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:690px){
+      .layout{display:block}
+      .side{position:fixed;z-index:6;left:-250px;top:0;bottom:0;width:240px;transition:left .18s;box-shadow:6px 0 25px #0002}
+      .side.open{left:0}
+      .topbar{height:58px;padding:0 14px}
+      .mobile-menu{display:block;margin-right:8px}
+      .crumb{display:flex;align-items:center}
+      .top-date{display:none}
+      .content{padding:18px 12px 32px}
+      .heading{align-items:flex-start;flex-direction:column;gap:12px}
+      .heading h1{font-size:22px}
+      .field-grid{grid-template-columns:1fr}
+      .coordinator-toolbar{flex-direction:column;align-items:stretch}
+      .booking-row{grid-template-columns:1fr auto}
+      .booking-row .booking-meta{display:none}
+    }
   </style>
 </head>
 <body>
 <div class="layout">
   <aside class="side" id="side">
-    <div class="brand"><img class="brand-logo" src="/assets/daystart-logo.png" alt="DayStart" /></div>
-    <div><div class="side-kicker">OPERATIONS</div><nav class="nav" aria-label="Main navigation">
-      <button class="active" data-page="dispatch"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="14" y="4" width="7" height="4" rx="1"/><rect x="14" y="11" width="7" height="9" rx="1"/><rect x="3" y="14" width="8" height="6" rx="1"/></svg>Booking desk</button>
-      <button data-page="bookings"><svg viewBox="0 0 24 24"><path d="M7 3h10v3h3v15H4V6h3z"/><path d="M8 11h8M8 15h8"/></svg>Bookings <span class="nav-count" id="bookingNavCount">0</span></button>
-      <button data-page="workers"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 5.5a3 3 0 0 1 0 5.8M18 14a4 4 0 0 1 3 4v2"/></svg>Worker roster</button>
-      <button data-page="memory"><svg viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-4.7 14.5c.8.6 1.2 1.4 1.2 2.5h7c0-1.1.4-1.9 1.2-2.5A8 8 0 0 0 12 3zM9.5 23h5M9 8.5c.6-1 1.6-1.5 3-1.5"/></svg>Hindsight memory</button>
-    </nav></div>
-    <div class="side-bottom"><div class="pilot-box"><b>Hyderabad pilot</b><span>Agriculture + Construction</span></div><div class="user"><div class="avatar">SK</div><div><b>Siva K.</b><small>Operations coordinator</small></div></div></div>
+    <div class="brand">
+      <img class="brand-logo" src="/assets/daystart-logo.png" alt="DayStart India" />
+    </div>
+    <div>
+      <div class="side-kicker">OPERATIONS</div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="active" data-page="dispatch">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="14" y="4" width="7" height="4" rx="1"/><rect x="14" y="11" width="7" height="9" rx="1"/><rect x="3" y="14" width="8" height="6" rx="1"/></svg>
+          Booking desk
+        </button>
+        <button data-page="bookings">
+          <svg viewBox="0 0 24 24"><path d="M7 3h10v3h3v15H4V6h3z"/><path d="M8 11h8M8 15h8"/></svg>
+          Bookings <span class="nav-count" id="bookingNavCount">0</span>
+        </button>
+        <button data-page="workers">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 5.5a3 3 0 0 1 0 5.8M18 14a4 4 0 0 1 3 4v2"/></svg>
+          Worker roster
+        </button>
+        <button data-page="memory">
+          <svg viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-4.7 14.5c.8.6 1.2 1.4 1.2 2.5h7c0-1.1.4-1.9 1.2-2.5A8 8 0 0 0 12 3zM9.5 23h5M9 8.5c.6-1 1.6-1.5 3-1.5"/></svg>
+          Hindsight memory
+        </button>
+      </nav>
+    </div>
+    <div class="side-bottom">
+      <div class="pilot-box">
+        <b>Hyderabad Pilot</b>
+        <span>Agriculture + Construction</span>
+      </div>
+      <div class="user">
+        <div class="avatar">SK</div>
+        <div><b>Siva K.</b><small>Operations Coordinator</small></div>
+      </div>
+    </div>
   </aside>
+
   <main>
-    <header class="topbar"><div class="crumb"><button class="mobile-menu" id="mobileMenu" aria-label="Open navigation"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>DayStart <span style="color:#adb2ad;margin:0 8px">/</span><b id="crumb">Booking desk</b></div><div class="top-right"><span class="top-date" id="today"></span><span class="memory-status" id="memoryStatus"><i class="status-dot"></i><span>Connecting</span></span><div class="avatar">SK</div></div></header>
+    <header class="topbar">
+      <div class="crumb">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">
+          <svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        DayStart India <span style="color:#adb2ad;margin:0 8px">/</span><b id="crumb">Booking desk</b>
+      </div>
+      <div class="top-right">
+        <span class="top-date" id="today"></span>
+        <span class="memory-status" id="memoryStatus"><i class="status-dot"></i><span>Connecting</span></span>
+        <div class="avatar">SK</div>
+      </div>
+    </header>
+
     <div class="content">
-      <div class="prototype-strip"><strong>WORKING PROTOTYPE</strong><span>Simulated bookings and payments · synthetic workers · Hindsight connection status shown above</span></div>
+      <div class="prototype-strip">
+        <strong>DAYSTART INDIA · AI AGENT WORKFORCE PLATFORM</strong>
+        <span>Autonomous operational reasoning with persistent Hindsight memory · Deterministic workforce eligibility</span>
+      </div>
+
+      <!-- DISPATCH PAGE -->
       <section class="page active" id="dispatch">
-        <div class="heading"><div><div class="eyebrow">DAYSTART · EMPLOYED WORKER NETWORK</div><h1>Book the right crew for the job</h1><p>Schedule verified Agriculture and Construction workers, with relevant site history at hand.</p></div><div class="actions"><button class="btn" id="resetDemo">Reset demo</button><button class="btn red" id="demoGuide">Demo walkthrough</button></div></div>
-        <div class="metrics">
-          <div class="metric"><div class="metric-label">Workers online <span class="metric-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 8h4m-2-2v4"/></svg></span></div><strong id="onlineCount">0</strong><small>Eligible for scheduled jobs</small></div>
-          <div class="metric"><div class="metric-label">Bookings in progress <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="M7 3h10v3h3v15H4V6h3zM8 11h8M8 15h5"/></svg></span></div><strong id="activeCount">0</strong><small>Current demo session</small></div>
-          <div class="metric"><div class="metric-label">Service categories <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-6h6v6"/></svg></span></div><strong>2</strong><small>Agriculture and Construction</small></div>
-          <div class="metric"><div class="metric-label">Assignment radius <span class="metric-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span></div><strong>10 <small>km</small></strong><small>Nearest eligible workers first</small></div>
+        <div class="heading">
+          <div>
+            <div class="eyebrow">DAYSTART INDIA · MEMORY-AWARE WORKFORCE COORDINATION AGENT</div>
+            <h1>Autonomous Booking & Dispatch Coordination</h1>
+            <p>The AI Agent recalls persistent operational history from Hindsight to prepare intelligent site recommendations, while current platform rules deterministically assign verified workers.</p>
+          </div>
+          <div class="actions">
+            <button class="btn" id="resetDemo">Reset demo</button>
+            <button class="btn red" id="demoGuide">Demo walkthrough</button>
+          </div>
         </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-label">Workers online <span class="metric-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 8h4m-2-2v4"/></svg></span></div>
+            <strong id="onlineCount">0</strong>
+            <small>Eligible for scheduled jobs</small>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Bookings in progress <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="M7 3h10v3h3v15H4V6h3zM8 11h8M8 15h5"/></svg></span></div>
+            <strong id="activeCount">0</strong>
+            <small>Active session bookings</small>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Operational memory <span class="metric-icon"><svg viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-4.7 14.5c.8.6 1.2 1.4 1.2 2.5h7c0-1.1.4-1.9 1.2-2.5A8 8 0 0 0 12 3z"/></svg></span></div>
+            <strong id="retainedMemoryCount">0</strong>
+            <small id="memoryStatusNote">Hindsight memory active</small>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Assignment radius <span class="metric-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span></div>
+            <strong>10 <small>km</small></strong>
+            <small>Strict deterministic sorting</small>
+          </div>
+        </div>
+
         <div class="columns">
           <div class="stack">
+            <!-- BOOKING REQUEST CARD -->
             <article class="card">
-              <div class="card-head"><div><h2>Create a scheduled booking</h2><p>Both launch services require booking at least one day ahead.</p></div><span class="tag red">30% ADVANCE</span></div>
+              <div class="card-head">
+                <div>
+                  <h2>Customer Booking Request</h2>
+                  <p>Scheduled workforce requirements for Agriculture or Construction</p>
+                </div>
+                <span class="tag red">30% ADVANCE REQUIRED</span>
+              </div>
               <div class="booking-form">
                 <div class="service-choice" role="radiogroup" aria-label="Service category">
-                  <button class="service-option selected" type="button" data-service="construction" aria-pressed="true"><span class="service-art"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7M8 9h.01M12 9h.01M16 9h.01"/></svg></span><span><b>Construction</b><small>₹849 per worker / day</small></span></button>
-                  <button class="service-option" type="button" data-service="agriculture" aria-pressed="false"><span class="service-art"><svg viewBox="0 0 24 24"><path d="M12 21v-9M12 15c-5 0-8-3-8-8 5 0 8 3 8 8zM12 12c0-5 3-8 8-8 0 5-3 8-8 8zM4 21h16"/></svg></span><span><b>Agriculture</b><small>₹699 per worker / day</small></span></button>
+                  <button class="service-option selected" type="button" data-service="construction" aria-pressed="true">
+                    <span class="service-art"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7M8 9h.01M12 9h.01M16 9h.01"/></svg></span>
+                    <span><b>Construction</b><small>₹849 per worker / day</small></span>
+                  </button>
+                  <button class="service-option" type="button" data-service="agriculture" aria-pressed="false">
+                    <span class="service-art"><svg viewBox="0 0 24 24"><path d="M12 21v-9M12 15c-5 0-8-3-8-8 5 0 8 3 8 8zM12 12c0-5 3-8 8-8 0 5-3 8-8 8zM4 21h16"/></svg></span>
+                    <span><b>Agriculture</b><small>₹699 per worker / day</small></span>
+                  </button>
                 </div>
+
                 <div class="field-grid">
-                  <div class="field"><label for="customerName">Customer or business name</label><input id="customerName" maxlength="80" placeholder="e.g. Greenfield Farm" value="Kompally Buildworks" /></div>
-                  <div class="field"><label for="siteSelect">Service area / site</label><select id="siteSelect"></select></div>
-                  <div class="field"><label for="taskSelect">Type of work</label><select id="taskSelect"></select></div>
-                  <div class="field"><label for="workerCount">Number of workers</label><select id="workerCount"></select><span class="field-note">Choose 1–20. Assignment depends on availability.</span></div>
-                  <div class="field"><label for="scheduledDate">Work date</label><input id="scheduledDate" type="date" /></div>
-                  <div class="field"><label for="siteNote">Site instruction (optional)</label><input id="siteNote" maxlength="180" placeholder="Gate, access, crop or site condition" /></div>
+                  <div class="field">
+                    <label for="customerName">Customer or business name</label>
+                    <input id="customerName" maxlength="80" placeholder="e.g. Kompally Buildworks" value="Kompally Buildworks" />
+                  </div>
+                  <div class="field">
+                    <label for="siteSelect">Service area / site</label>
+                    <select id="siteSelect"></select>
+                  </div>
+                  <div class="field">
+                    <label for="taskSelect">Type of work</label>
+                    <select id="taskSelect"></select>
+                  </div>
+                  <div class="field">
+                    <label for="workerCount">Number of workers</label>
+                    <select id="workerCount"></select>
+                    <span class="field-note">Direct employment pool · 1–20 workers</span>
+                  </div>
+                  <div class="field">
+                    <label for="scheduledDate">Work date</label>
+                    <input id="scheduledDate" type="date" />
+                  </div>
+                  <div class="field">
+                    <label for="siteNote">Customer site instruction (optional)</label>
+                    <input id="siteNote" maxlength="180" placeholder="e.g. Arrive before security gates close" />
+                  </div>
                 </div>
-                <div class="form-footer"><div class="price-summary"><b id="totalPrice">₹2,547</b><span id="advancePrice">30% advance ₹764.10 · Balance ₹1,782.90</span><span class="smallprint">Prototype payment only; no money is collected.</span></div><button class="btn red" id="createBooking">Check crew & book</button></div>
+
+                <div class="form-footer">
+                  <div class="price-summary">
+                    <b id="totalPrice">₹2,547</b>
+                    <span id="advancePrice">30% advance ₹764.10 · Balance ₹1,782.90</span>
+                    <span class="smallprint">Direct employment billing · Simulated prototype payment</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CENTRAL AI AGENT REASONING CARD -->
+              <div class="agent-card" id="agentCard">
+                <div class="agent-head">
+                  <div class="agent-title">
+                    <span class="agent-badge-icon">
+                      <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 1 8 8c0 3.2-1.8 5.9-4.5 7.2L15 20H9l-.5-2.8C5.8 15.9 4 13.2 4 10a8 8 0 0 1 8-8z"/><path d="M9 22h6M10 13l2 2 4-4"/></svg>
+                    </span>
+                    <div>
+                      <b>DayStart India AI Agent</b>
+                      <small id="agentModeSub">Reasoning over booking parameters & Hindsight persistent memory</small>
+                    </div>
+                  </div>
+                  <span class="tag purple" id="agentConfidenceBadge">EVALUATING MEMORY...</span>
+                </div>
+
+                <div class="agent-loop">
+                  <span class="loop-step">🔍 1. Observe Request</span>
+                  <span class="loop-sep">→</span>
+                  <span class="loop-step">🧠 2. Recall Hindsight</span>
+                  <span class="loop-sep">→</span>
+                  <span class="loop-step">⚡ 3. Reason & Plan</span>
+                  <span class="loop-sep">→</span>
+                  <span class="loop-step">👤 4. Coordinator Approval</span>
+                </div>
+
+                <div class="agent-summary" id="agentSummary">
+                  Analyzing current booking parameters against persistent Hindsight memory bank...
+                </div>
+
+                <!-- RECALLED MEMORY CITATIONS -->
+                <div class="recalled-box" id="recalledBox" style="display:none">
+                  <div class="recalled-box-head">
+                    <span>RECALLED OPERATIONAL CONTEXT (HINDSIGHT CITATIONS)</span>
+                    <span class="tag" id="recalledCountTag">0 RECORDS</span>
+                  </div>
+                  <div id="recalledItemsList"></div>
+                </div>
+
+                <!-- ACTIONABLE RECOMMENDATIONS -->
+                <div class="recommendations-box" id="recommendationsList"></div>
+
+                <!-- COORDINATOR REVIEW TOOLBAR -->
+                <div class="coordinator-toolbar">
+                  <div>
+                    <span class="coordinator-status-label" id="coordStatusLabel">COORDINATOR REVIEW: Pending</span>
+                    <small style="display:block;font-size:9px;color:#70588c">Coordinator maintains operational authority over crew dispatch instructions.</small>
+                  </div>
+                  <div class="coordinator-buttons">
+                    <button class="btn green tiny" id="acceptPlanBtn">✓ Accept Plan</button>
+                    <button class="btn tiny" id="editPlanBtn">✎ Edit Directives</button>
+                    <button class="btn tiny" id="ignorePlanBtn">✕ Ignore</button>
+                  </div>
+                </div>
+              </div>
+
+              <div style="padding:0 18px 18px">
+                <button class="btn red block" id="createBooking" style="min-height:44px;font-size:13px">
+                  Confirm Crew & Dispatch Booking
+                </button>
               </div>
             </article>
-            <article class="card"><div class="card-head"><div><h2>Latest bookings</h2><p>Assignment and payment status for this session</p></div><button class="btn link" data-page="bookings">View all</button></div><div class="list-wrap" id="latestBookings"><div class="empty"><b>No bookings yet</b>Create a scheduled job to see assignment results here.</div></div></article>
+
+            <!-- LATEST BOOKINGS -->
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2>Latest Dispatched Bookings</h2>
+                  <p>Assignment status, coordinator directives, and job completion outcomes</p>
+                </div>
+                <button class="btn link" data-page="bookings">View all</button>
+              </div>
+              <div class="list-wrap" id="latestBookings">
+                <div class="empty"><b>No bookings yet</b>Create a scheduled job above to observe the AI Agent workflow.</div>
+              </div>
+            </article>
           </div>
+
+          <!-- RIGHT COLUMN -->
           <div class="stack">
-            <article class="card"><div class="card-head"><div><h2>Site history assistant</h2><p>Use Hindsight to recall past job outcomes for this site.</p></div><span class="tag" id="memoryModeTag">DEMO MEMORY</span></div>
-              <div class="memory-panel"><div class="memory-panel-head"><div class="memory-panel-title"><span class="memory-symbol"><svg viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-4.7 14.5c.8.6 1.2 1.4 1.2 2.5h7c0-1.1.4-1.9 1.2-2.5A8 8 0 0 0 12 3zM9 8.5c.6-1 1.6-1.5 3-1.5M9.5 23h5"/></svg></span><span><b>Remember the site, not just the form</b><small id="recallContext">Select a service and site to find relevant history.</small></span></div><span class="tag" id="recallTag">NOT SEARCHED</span></div>
-                <div class="memory-controls"><button class="btn soft" id="recallBtn">Recall site history</button><button class="btn" id="seedMemoryBtn">Load sample history</button></div>
-                <div class="memory-result" id="memoryResult"><div class="memory-empty">A new site starts with no history. After a completed job, the coordinator can retain a useful, non-sensitive outcome for next time.</div></div>
-                <div class="memory-note">Memory informs preparation only. The live eligibility and distance rules decide the available worker pool.</div>
+            <!-- CURRENT WORKFORCE ELIGIBILITY -->
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2>Current Workforce Engine</h2>
+                  <p>Nearest available workers meeting deterministic platform rules</p>
+                </div>
+                <span class="tag" id="poolTag">0 ELIGIBLE</span>
+              </div>
+              <div class="worker-pool" id="workerPool">
+                <div class="empty">Select a service area to inspect current eligible workforce.</div>
+              </div>
+              <div class="key-value">
+                <span>Eligibility Engine</span><b>Verified · Online · Rating ≥ 3.0</b>
+                <span>Search Radius</span><b>10 km (strict haversine)</b>
+                <span>Independence</span><b>Hindsight NEVER overrides eligibility</b>
               </div>
             </article>
-            <article class="card"><div class="card-head"><div><h2>Eligible worker preview</h2><p>Nearest available workers that meet current assignment rules</p></div><span class="tag" id="poolTag">0 WORKERS</span></div><div class="worker-pool" id="workerPool"><div class="empty">Select a matching service area to view the current worker pool.</div></div><div class="key-value"><span>Eligibility</span><b>Verified · Online · Rating ≥ 3.0</b><span>Search radius</span><b>10 km from job site</b><span>Assignment</span><b>Nearest workers first</b></div></article>
-            <article class="card"><div class="card-head"><div><h2>Demo story</h2><p>Show the value of memory in one repeat job</p></div><span class="tag red">60–90 SEC</span></div><div class="guide"><div class="guide-step"><span class="stepno">1</span><span><b>Load a prior-job record</b><span>For the selected site, load a synthetic site condition into Hindsight or local demo memory.</span></span></div><div class="guide-step"><span class="stepno">2</span><span><b>Recall it while booking</b><span>Show the memory source beside the new Agriculture or Construction job.</span></span></div><div class="guide-step"><span class="stepno">3</span><span><b>Complete and learn</b><span>Record a safe operational outcome; use it in the next repeat booking.</span></span></div></div></article>
+
+            <!-- HINDSIGHT DEMO CONTROLS -->
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2>Hindsight Memory Controls</h2>
+                  <p>Manage persistent memory bank for testing</p>
+                </div>
+                <span class="tag purple" id="memoryModeTag">DEMO MEMORY</span>
+              </div>
+              <div style="padding:14px 18px;display:grid;gap:9px">
+                <button class="btn soft block" id="recallBtn">🧠 Trigger Agent Re-Planning (Recall)</button>
+                <button class="btn purple block" id="seedMemoryBtn">⚡ Load 8 Synthetic Prior-Job Records</button>
+                <button class="btn block" id="clearMemoryBtn">↺ Clear Memory (Test 'Before Memory' State)</button>
+                <div class="smallprint" style="margin-top:4px">
+                  <b>Hackathon Testing Tip:</b> Clear memory to observe the <i>Baseline Operational Plan</i>. Then load records or complete jobs to watch the Agent generate a <i>Memory-Informed Plan</i> with verified citations.
+                </div>
+              </div>
+            </article>
+
+            <!-- 60-90 SEC WALKTHROUGH -->
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2>Hackathon Demo Story</h2>
+                  <p>How to demonstrate DayStart India in 90 seconds</p>
+                </div>
+                <span class="tag red">60–90 SEC</span>
+              </div>
+              <div class="guide">
+                <div class="guide-step">
+                  <span class="stepno">1</span>
+                  <span><b>Step 1: Baseline (Before Memory)</b><span>Start with zero records. Show how the agent generates a generic baseline preparation plan.</span></span>
+                </div>
+                <div class="guide-step">
+                  <span class="stepno">2</span>
+                  <span><b>Step 2: Retain Job Outcome</b><span>Complete a booking with specific site notes (e.g. West gate access, mortar pre-staging). Retain in Hindsight.</span></span>
+                </div>
+                <div class="guide-step">
+                  <span class="stepno">3</span>
+                  <span><b>Step 3: Repeat Booking (After Memory)</b><span>Draft a repeat booking. The Agent recalls the prior experience and generates tailored operational recommendations with citations.</span></span>
+                </div>
+                <div class="guide-step">
+                  <span class="stepno">4</span>
+                  <span><b>Step 4: Deterministic Worker Assignment</b><span>Show that while the Agent learns site context, worker eligibility remains 100% strictly enforced.</span></span>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
-      <section class="page" id="bookings"><div class="heading"><div><div class="eyebrow">CUSTOMER JOBS</div><h1>Bookings</h1><p>Scheduled Agriculture and Construction work in this demo session.</p></div><button class="btn red" data-page="dispatch">Create booking</button></div><article class="card"><div class="card-head"><div><h2>Booking register</h2><p>Worker assignment, amount due, and completion outcome</p></div></div><div class="list-wrap" id="allBookings"><div class="empty"><b>No bookings yet</b>Bookings you create appear here.</div></div></article></section>
-      <section class="page" id="workers"><div class="heading"><div><div class="eyebrow">DIRECTLY EMPLOYED WORKFORCE</div><h1>Worker roster</h1><p>Demo workers are filtered by service, verification, online status, rating, active job, and distance.</p></div></div><div class="metrics"><div class="metric"><div class="metric-label">Agriculture workers</div><strong id="agriRosterCount">0</strong><small>Demo roster</small></div><div class="metric"><div class="metric-label">Construction workers</div><strong id="constructionRosterCount">0</strong><small>Demo roster</small></div><div class="metric"><div class="metric-label">Verified and eligible</div><strong id="eligibleRosterCount">0</strong><small>Online, rating ≥ 3.0</small></div><div class="metric"><div class="metric-label">Suspended / below minimum</div><strong id="excludedRosterCount">0</strong><small>Not assigned to new work</small></div></div><article class="card"><div class="card-head"><div><h2>Worker list</h2><p>Synthetic records for the interactive prototype</p></div><select id="workerFilter" class="btn" aria-label="Filter workers"><option value="all">Both services</option><option value="agriculture">Agriculture</option><option value="construction">Construction</option></select></div><div class="list-wrap" id="allWorkers"></div></article></section>
-      <section class="page" id="memory"><div class="heading"><div><div class="eyebrow">PERSISTENT SERVICE CONTEXT</div><h1>Hindsight memory</h1><p>DayStart retains operational site outcomes and recalls them for relevant repeat jobs.</p></div><button class="btn" id="resetMemories">Clear local demo memory</button></div><div class="columns"><article class="card"><div class="card-head"><div><h2>Memory events in this session</h2><p id="memoryPageSubtitle">Only non-sensitive site and job context belongs here.</p></div><span class="tag" id="memoryPageTag">DEMO MODE</span></div><div class="memory-list" id="memoryList"><div class="empty"><b>No retained records in this session</b>Load sample history or complete a booking to add an event.</div></div><div class="hint">Production policy: keep phone numbers, identity documents, exact home addresses, payment credentials, and sensitive worker data out of agent memory. Use source booking IDs and site IDs to trace context in the platform record.</div></article><article class="card"><div class="card-head"><div><h2>How Hindsight supports the product</h2><p>Memory is part of the repeat-booking workflow.</p></div></div><div class="guide"><div class="guide-step"><span class="stepno">1</span><span><b>Retain</b><span>After a completed job, retain the coordinator-approved site condition and outcome with a source booking ID.</span></span></div><div class="guide-step"><span class="stepno">2</span><span><b>Recall</b><span>On a repeat booking, query relevant history by service category and site ID.</span></span></div><div class="guide-step"><span class="stepno">3</span><span><b>Reflect with sources</b><span>Summarize prior context and show source facts. The coordinator checks whether they still apply.</span></span></div><div class="guide-step"><span class="stepno">4</span><span><b>Keep assignment deterministic</b><span>Memory never overrides verification, availability, rating, distance, or coordinator review.</span></span></div></div><div class="divider"></div><div class="hint" style="padding-top:12px">Current Hindsight status is shown at the top of the page. When the Hindsight server is unavailable, the prototype labels local fallback records as demo memory.</div></article></div></section>
+
+      <!-- BOOKINGS REGISTER PAGE -->
+      <section class="page" id="bookings">
+        <div class="heading">
+          <div>
+            <div class="eyebrow">DAYSTART INDIA · SCHEDULED WORKFORCE REGISTER</div>
+            <h1>Bookings Register</h1>
+            <p>Active and completed Agriculture and Construction jobs with agent operational plans and coordinator outcomes.</p>
+          </div>
+          <button class="btn red" data-page="dispatch">Create New Booking</button>
+        </div>
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <h2>All Demo Session Bookings</h2>
+              <p>Direct crew assignments, advance payments, and retained operational outcomes</p>
+            </div>
+          </div>
+          <div class="list-wrap" id="allBookings">
+            <div class="empty"><b>No bookings yet</b>Bookings you create will appear here.</div>
+          </div>
+        </article>
+      </section>
+
+      <!-- WORKER ROSTER PAGE -->
+      <section class="page" id="workers">
+        <div class="heading">
+          <div>
+            <div class="eyebrow">DAYSTART INDIA · EMPLOYED WORKFORCE POOL</div>
+            <h1>Worker Roster & Eligibility Engine</h1>
+            <p>Directly employed workers filtered deterministically by service, verification, online status, rating, active job, and 10 km radius.</p>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="metric-label">Agriculture workers</div><strong id="agriRosterCount">0</strong><small>Hyderabad roster</small></div>
+          <div class="metric"><div class="metric-label">Construction workers</div><strong id="constructionRosterCount">0</strong><small>Hyderabad roster</small></div>
+          <div class="metric"><div class="metric-label">Verified & Eligible</div><strong id="eligibleRosterCount">0</strong><small>Online, rating ≥ 3.0</small></div>
+          <div class="metric"><div class="metric-label">Excluded / Suspended</div><strong id="excludedRosterCount">0</strong><small>Not eligible for dispatch</small></div>
+        </div>
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <h2>Worker Roster List</h2>
+              <p>Hindsight memory never makes an unverified, offline, or low-rated worker eligible.</p>
+            </div>
+            <select id="workerFilter" class="btn" aria-label="Filter workers">
+              <option value="all">Both services</option>
+              <option value="agriculture">Agriculture</option>
+              <option value="construction">Construction</option>
+            </select>
+          </div>
+          <div class="list-wrap" id="allWorkers"></div>
+        </article>
+      </section>
+
+      <!-- HINDSIGHT MEMORY PAGE -->
+      <section class="page" id="memory">
+        <div class="heading">
+          <div>
+            <div class="eyebrow">DAYSTART INDIA · PERSISTENT EXPERIENCE REPOSITORY</div>
+            <h1>Hindsight Memory Bank</h1>
+            <p>DayStart India retains safe, non-sensitive site outcomes and recalls them to inform future operational planning.</p>
+          </div>
+          <button class="btn" id="resetMemories">Clear session memory</button>
+        </div>
+        <div class="columns">
+          <article class="card">
+            <div class="card-head">
+              <div>
+                <h2>Retained Operational Outcomes</h2>
+                <p id="memoryPageSubtitle">Scrubbed operational records stored in Hindsight memory.</p>
+              </div>
+              <span class="tag purple" id="memoryPageTag">DEMO MODE</span>
+            </div>
+            <div class="memory-list" id="memoryList">
+              <div class="empty"><b>No retained records yet</b>Load sample history or complete a job to retain operational context.</div>
+            </div>
+            <div class="hint">
+              <b>Strict Privacy Policy:</b> Aadhaar numbers, phone numbers, passwords, emails, and exact residential addresses are scrubbed before retention. Memory stores only safe operational context (gates, equipment, timing, hazards).
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-head">
+              <div><h2>Agent Memory Architecture</h2><p>How Hindsight empowers DayStart India</p></div>
+            </div>
+            <div class="guide">
+              <div class="guide-step">
+                <span class="stepno">1</span>
+                <span><b>1. Observe & Retrieve</b><span>Upon booking request, the AI Agent queries Hindsight with scoped service and site tags.</span></span>
+              </div>
+              <div class="guide-step">
+                <span class="stepno">2</span>
+                <span><b>2. Reason & Synthesize</b><span>The Agent detects recurring patterns (e.g. gate locks, heat timing) and formulates an actionable plan with citations.</span></span>
+              </div>
+              <div class="guide-step">
+                <span class="stepno">3</span>
+                <span><b>3. Coordinator Approval</b><span>The coordinator reviews recommendations with 1-click Accept, Edit, or Ignore.</span></span>
+              </div>
+              <div class="guide-step">
+                <span class="stepno">4</span>
+                <span><b>4. Deterministic Guardrails</b><span>Platform rules strictly govern worker eligibility (verified, online, rating ≥ 3.0, 10 km). Memory cannot override safety rules.</span></span>
+              </div>
+              <div class="guide-step">
+                <span class="stepno">5</span>
+                <span><b>5. Learn from Completion</b><span>Upon job completion, safe non-sensitive outcomes are retained into Hindsight for the next booking.</span></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
     </div>
   </main>
 </div>
-<div class="veil" id="completeModal" role="dialog" aria-modal="true" aria-labelledby="completeTitle"><div class="modal"><div class="modal-head"><h2 id="completeTitle">Complete this booking</h2><button class="close" data-close="completeModal" aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><div class="modal-body"><p style="font-size:10px;color:var(--sub);margin-top:0">Record one operational outcome that will help the next booking at this site. Avoid names, phone numbers, ID numbers, payment details, and exact home addresses.</p><div class="field"><label for="outcomeNote">What should the coordinator remember?</label><textarea id="outcomeNote" maxlength="500" placeholder="Example: West gate was open before 9 AM; the east entrance was locked. Tile work finished with the planned three-worker crew."></textarea></div></div><div class="modal-footer"><button class="btn" data-close="completeModal">Cancel</button><button class="btn red" id="completeConfirm">Complete & retain outcome</button></div></div></div>
-<div class="veil" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideTitle"><div class="modal"><div class="modal-head"><h2 id="guideTitle">Hackathon demo walkthrough</h2><button class="close" data-close="guideModal" aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><div class="modal-body"><ol style="font-size:10px;color:#4f5852;line-height:1.8;padding-left:17px;margin:0"><li>Choose Construction / Kompally and load the synthetic prior-job memory.</li><li>Recall site history. Show the note and its booking source beside the new job.</li><li>Book a scheduled tile-work job for three workers. Show the nearest eligible assignment and 30% advance calculation.</li><li>Complete the job with a new operational note. Explain that this note is retained for a future repeat booking.</li><li>Recall again. Contrast the before/after context, while explaining that Hindsight does not decide who gets assigned.</li></ol><p style="font-size:9px;color:var(--sub);margin-bottom:0">For the official demo, connect the app to Hindsight before recording so the memory trace reflects real retain/recall calls.</p></div><div class="modal-footer"><button class="btn red" data-close="guideModal">Start demo</button></div></div></div>
+
+<!-- JOB COMPLETION MODAL -->
+<div class="veil" id="completeModal" role="dialog" aria-modal="true" aria-labelledby="completeTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="completeTitle">Complete Job & Retain Experience</h2>
+      <button class="close" data-close="completeModal" aria-label="Close">
+        <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:11px;color:var(--sub);margin-top:0">
+        Record an operational outcome (gate access, timing, equipment, site safety). This safe outcome will be retained in <b>Hindsight Memory</b> to help the agent prepare future jobs at this site.
+      </p>
+      <div class="field">
+        <label for="outcomeNote">Operational outcome for Hindsight memory:</label>
+        <textarea id="outcomeNote" maxlength="500" placeholder="e.g. West gate access confirmed with zero delay. Mortar mix was pre-staged successfully. Tiling finished on schedule."></textarea>
+      </div>
+      <div class="smallprint" style="color:#236c4b">
+        ✓ Automatic privacy filter: phone numbers, emails, and identity details are scrubbed automatically.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-close="completeModal">Cancel</button>
+      <button class="btn red" id="completeConfirm">Complete & Retain in Hindsight</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT DIRECTIVES MODAL -->
+<div class="veil" id="editModal" role="dialog" aria-modal="true" aria-labelledby="editTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="editTitle">Edit Coordinator Directives</h2>
+      <button class="close" data-close="editModal" aria-label="Close">
+        <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:11px;color:var(--sub);margin-top:0">
+        Modify or append custom operational directives to the crew dispatch ticket.
+      </p>
+      <div class="field">
+        <label for="customDirectiveText">Coordinator Directives:</label>
+        <textarea id="customDirectiveText" maxlength="500"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-close="editModal">Cancel</button>
+      <button class="btn purple" id="saveEditBtn">Save Directives</button>
+    </div>
+  </div>
+</div>
+
+<!-- DEMO GUIDE MODAL -->
+<div class="veil" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="guideTitle">DayStart India · Hackathon Demo Walkthrough</h2>
+      <button class="close" data-close="guideModal" aria-label="Close">
+        <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ol style="font-size:11px;color:#4f5852;line-height:1.75;padding-left:18px;margin:0">
+        <li><b>Clean Baseline (Before Memory):</b> Click 'Clear Memory'. Notice the AI Agent outputs a <i>Baseline Operational Plan</i> with generic checks.</li>
+        <li><b>Create & Complete Booking:</b> Dispatch a 3-worker tile crew at Kompally. Click 'Complete' and enter: <i>"West gate open before 9 AM; east entrance was locked. Tiling completed smoothly."</i> Retain it in Hindsight.</li>
+        <li><b>Repeat Booking (After Memory):</b> Draft another booking for Kompally. Observe the AI Agent immediately switch to a <b>Memory-Informed Plan</b>! It warns about East entrance lockouts and recommends West gate entry with source citations!</li>
+        <li><b>Load Multi-Site History:</b> Click 'Load 8 Synthetic Prior-Job Records'. Switch between Kompally, Shamshabad, Medchal, and Chevella to see site-specific operational reasoning.</li>
+        <li><b>Deterministic Guardrail:</b> Check the Worker Roster to verify that while Hindsight powers operational reasoning, worker eligibility strictly remains 100% deterministic based on current platform data.</li>
+      </ol>
+    </div>
+    <div class="modal-footer">
+      <button class="btn red" data-close="guideModal">Start Demo</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
-  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-  const state={services:{},sites:[],bookings:[],workers:[],selectedService:'construction',memoryStatus:{connected:false,mode:'Demo memory'},lastMemory:null,completionId:null};
-  const icons={star:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>'};
-  function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),3100)}
-  async function api(path,options={}){const response=await fetch(path,{...options,headers:{'Content-Type':'application/json',...(options.headers||{})}});const data=await response.json().catch(()=>({error:'Invalid response'}));if(!response.ok)throw new Error(data.error||`Request failed (${response.status})`);return data}
-  function dateText(){const d=new Date();$('#today').textContent=new Intl.DateTimeFormat('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(d);const min=new Date();min.setDate(min.getDate()+1);$('#scheduledDate').min=min.toISOString().slice(0,10);const def=new Date();def.setDate(def.getDate()+2);$('#scheduledDate').value=def.toISOString().slice(0,10)}
-  function activatePage(name){const title={dispatch:'Booking desk',bookings:'Bookings',workers:'Worker roster',memory:'Hindsight memory'};if(!title[name])return;$$('.page').forEach(p=>p.classList.toggle('active',p.id===name));$$('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===name));$('#crumb').textContent=title[name];$('#side').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});if(name==='workers')renderWorkers();if(name==='memory')renderMemories()}
-  $$('[data-page]').forEach(b=>b.addEventListener('click',()=>activatePage(b.dataset.page)));
-  $('#mobileMenu').addEventListener('click',()=>$('#side').classList.toggle('open'));
-  function serviceLabel(id){return state.services[id]?.name||id}
-  function updateServiceChoice(service){state.selectedService=service;$$('.service-option').forEach(b=>{const on=b.dataset.service===service;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',String(on))});renderSiteOptions();renderTaskOptions();updatePrice();loadWorkers();clearRecall()}
-  function renderSiteOptions(){const chosen=$('#siteSelect').value;const sites=state.sites.filter(x=>x.service===state.selectedService);$('#siteSelect').innerHTML=sites.map(s=>`<option value="${s.id}">${s.area} · ${s.id}</option>`).join('');if(sites.some(s=>s.id===chosen))$('#siteSelect').value=chosen}
-  function renderTaskOptions(){const service=state.services[state.selectedService];$('#taskSelect').innerHTML=(service?.subservices||[]).map(x=>`<option ${x.toLowerCase().startsWith(state.selectedService==='construction'?'tile work':'harvesting')?'selected':''}>${x}</option>`).join('')}
-  function updatePrice(){const service=state.services[state.selectedService];if(!service)return;const count=Number($('#workerCount').value||3),total=service.rate*count,advance=Math.round(total*30)/100,balance=Math.round(total*70)/100;$('#totalPrice').textContent=new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(total);$('#advancePrice').textContent=`30% advance ₹${advance.toFixed(2)} · Balance ₹${balance.toFixed(2)}`}
-  function siteSelected(){return state.sites.find(s=>s.id===$('#siteSelect').value)}
-  function clearRecall(){state.lastMemory=null;$('#recallTag').textContent='NOT SEARCHED';$('#recallContext').textContent='Select a service and site to find relevant history.';$('#memoryResult').innerHTML='<div class="memory-empty">A new site starts with no history. After a completed job, the coordinator can retain a useful, non-sensitive outcome for next time.</div>'}
-  function renderRecall(data){state.lastMemory=data;$('#recallTag').textContent=data.mode==='Hindsight'?'HINDSIGHT':'DEMO MEMORY';$('#recallContext').textContent=`${serviceLabel(state.selectedService)} · ${siteSelected()?.label||'Selected site'}`;const results=data.results||[];if(!results.length){$('#memoryResult').innerHTML=`<div class="memory-empty">${data.usedMemory?'No relevant history was returned.':'No matching history yet. This gives the coordinator a clean first-booking baseline.'}</div>`;return}const list=results.map(r=>`<div class="memory-item"><p>${escapeHTML(r.text)}</p><span class="memory-source">Source: ${escapeHTML(r.source||r.metadata?.source_booking_id||'Past job record')}</span></div>`).join('');const reflection=data.reflection?`<div class="reflect"><b>Planning context</b><br>${escapeHTML(data.reflection)}</div>`:'';$('#memoryResult').innerHTML=`${list}${reflection}`}
-  function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-  async function loadWorkers(){const site=siteSelected();if(!site)return;try{const data=await api(`/api/workers?service=${encodeURIComponent(state.selectedService)}&siteId=${encodeURIComponent(site.id)}`);$('#poolTag').textContent=`${data.eligibleCount} ELIGIBLE`;if(!data.workers.length){$('#workerPool').innerHTML='<div class="empty">No worker currently meets all assignment rules in the 10 km radius.</div>';return}$('#workerPool').innerHTML=data.workers.slice(0,5).map(w=>`<div class="worker-row"><div class="worker-avatar">${escapeHTML(w.name.split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><div><b>${escapeHTML(w.name)} <span style="color:#a27427">${icons.star} ${w.rating.toFixed(1)}</span></b><small>${escapeHTML(w.skill)} · ${escapeHTML(w.tier)}</small></div><span class="tag green">VERIFIED</span><span class="worker-distance">${w.distanceKm.toFixed(1)} km</span></div>`).join('')}catch(err){$('#workerPool').innerHTML=`<div class="empty">${escapeHTML(err.message)}</div>`}}
-  function bookingRow(b){const status=b.status==='needs_coordinator'?'needs_coordinator':b.status;const statusText=status==='needs_coordinator'?'Needs coordinator':status==='assigned'?'Assigned':'Completed';const crew=b.assignedWorkers?.length?`${b.assignedWorkers.length}/${b.workerCount} assigned`:`0/${b.workerCount} assigned`;const workerNames=(b.assignedWorkers||[]).map(w=>w.name).join(', ')||'No workers assigned';const action=b.status==='assigned'?`<button class="btn tiny" data-complete="${escapeHTML(b.id)}">Complete</button>`:b.status==='needs_coordinator'?'<span class="smallprint">Review worker availability</span>':'<span class="smallprint">Outcome retained</span>';return `<div class="booking-row"><div><b>${escapeHTML(b.customerName)} · ${escapeHTML(b.siteId)}</b><small>${escapeHTML(serviceLabel(b.service))} · ${escapeHTML(b.subService)} · ${escapeHTML(b.scheduledDate)}</small><small style="display:block;margin-top:2px">${escapeHTML(workerNames)}</small></div><div class="booking-meta"><b>${crew}</b><small>${b.workerCount} requested</small></div><div class="booking-meta"><b>₹${Number(b.totalPrice).toLocaleString('en-IN')}</b><small>Advance ₹${Number(b.advanceAmount).toFixed(2)}</small></div><div><span class="status ${status}">${statusText}</span><div class="row-actions" style="margin-top:6px">${action}</div></div></div>`}
-  function renderBookings(){const latest=$('#latestBookings'),all=$('#allBookings'),content=state.bookings.length?state.bookings.map(bookingRow).join(''):'<div class="empty"><b>No bookings yet</b>Create a scheduled job to see assignment results here.</div>';latest.innerHTML=content;all.innerHTML=content;$('#bookingNavCount').textContent=state.bookings.length;$('#activeCount').textContent=state.bookings.filter(b=>b.status==='assigned').length;$$('[data-complete]').forEach(b=>b.addEventListener('click',()=>openCompletion(b.dataset.complete)))}
-  function renderWorkers(){const filter=$('#workerFilter')?.value||'all';const ws=state.workers.filter(w=>filter==='all'||w.service===filter);const good=state.workers.filter(w=>w.verified&&!w.suspended&&w.rating>=3&&w.online).length;const excluded=state.workers.filter(w=>!w.verified||w.suspended||w.rating<3).length;$('#agriRosterCount').textContent=state.workers.filter(w=>w.service==='agriculture').length;$('#constructionRosterCount').textContent=state.workers.filter(w=>w.service==='construction').length;$('#eligibleRosterCount').textContent=good;$('#excludedRosterCount').textContent=excluded;$('#allWorkers').innerHTML=ws.map(w=>`<div class="booking-row"><div><b>${escapeHTML(w.name)} · ${escapeHTML(w.id)}</b><small>${escapeHTML(serviceLabel(w.service))} · ${escapeHTML(w.skill)} · ${escapeHTML(w.tier)}</small></div><div class="booking-meta"><b class="rate">${icons.star} <span>${w.rating.toFixed(1)}</span></b><small>Rating</small></div><div class="booking-meta"><span class="status ${w.online?'assigned':'cancelled'}">${w.online?'Online':'Offline'}</span></div><div>${w.verified&&!w.suspended&&w.rating>=3?'<span class="tag green">ELIGIBLE</span>':'<span class="tag">EXCLUDED</span>'}</div></div>`).join('')}
-  function renderMemories(){const logs=state.lastMemory?.results||[];const local=state.sessionMemories||[];let records=[...local];if(state.lastMemory?.mode==='Hindsight')records=[...logs.map(x=>({content:x.text,source:x.source||'Hindsight recall',createdAt:new Date().toISOString(),service:state.selectedService,siteId:siteSelected()?.id})),...local];$('#memoryPageTag').textContent=state.memoryStatus.connected?'HINDSIGHT CONNECTED':'DEMO MODE';$('#memoryPageSubtitle').textContent=state.memoryStatus.connected?'Connected session records and current recall results.':'Local demo records are temporary and clear when the server restarts.';$('#memoryList').innerHTML=records.length?records.map(m=>`<div class="memory-log"><div class="memory-log-head"><b>${escapeHTML(serviceLabel(m.service||state.selectedService))} · ${escapeHTML(m.siteId||'site')}</b><span class="tag">${escapeHTML(m.source||'Session record')}</span></div><p>${escapeHTML(m.content||m.text||'')}</p><p>${escapeHTML(m.createdAt||'')}</p></div>`).join(''):'<div class="empty"><b>No retained records in this session</b>Load sample history or complete a booking to add an event.</div>'}
-  async function refresh(){try{const d=await api('/api/state');state.services=d.services;state.sites=d.sites;state.bookings=d.bookings;state.workers=d.workers;state.memoryStatus=d.memoryStatus;state.sessionMemories=d.memories||[];const status=$('#memoryStatus');status.classList.toggle('connected',d.memoryStatus.connected);status.querySelector('span').textContent=d.memoryStatus.connected?'Hindsight connected':'Demo memory';$('#memoryModeTag').textContent=d.memoryStatus.connected?'HINDSIGHT':'DEMO MEMORY';$('#workerCount').innerHTML=Array.from({length:20},(_,i)=>`<option value="${i+1}" ${i===2?'selected':''}>${i+1} worker${i===0?'':'s'}</option>`).join('');$('#onlineCount').textContent=state.workers.filter(w=>w.online&&w.verified&&!w.suspended&&w.rating>=3).length;renderSiteOptions();renderTaskOptions();renderBookings();updatePrice();await loadWorkers()}catch(err){toast(`Could not load DayStart: ${err.message}`)}}
-  $$('.service-option').forEach(b=>b.addEventListener('click',()=>updateServiceChoice(b.dataset.service)));
-  $('#siteSelect').addEventListener('change',()=>{clearRecall();loadWorkers()});$('#workerCount').addEventListener('change',updatePrice);$('#workerFilter').addEventListener('change',renderWorkers);
-  $('#recallBtn').addEventListener('click',async()=>{const site=siteSelected();if(!site)return toast('Select a service site first.');const btn=$('#recallBtn');btn.disabled=true;btn.textContent='Searching history…';try{const query=`Prepare a repeat ${serviceLabel(state.selectedService)} booking for ${$('#taskSelect').value} with ${$('#workerCount').value} workers. Site instruction: ${$('#siteNote').value||'none entered'}.`;const data=await api('/api/memory/recall',{method:'POST',body:JSON.stringify({service:state.selectedService,siteId:site.id,query})});renderRecall(data);toast(data.mode==='Hindsight'?'Hindsight recall completed.':'Demo memory search completed.')}catch(err){$('#memoryResult').innerHTML=`<div class="memory-empty">${escapeHTML(err.message)}</div>`;toast(err.message)}finally{btn.disabled=false;btn.textContent='Recall site history'}});
-  $('#seedMemoryBtn').addEventListener('click',async()=>{const site=siteSelected();try{const d=await api('/api/demo/seed-memory',{method:'POST',body:JSON.stringify({siteId:site.id})});toast(d.message);await refresh();$('#recallBtn').click()}catch(err){toast(err.message)}});
-  $('#createBooking').addEventListener('click',async()=>{const site=siteSelected();const btn=$('#createBooking');btn.disabled=true;btn.textContent='Checking availability…';try{const result=await api('/api/bookings',{method:'POST',body:JSON.stringify({service:state.selectedService,siteId:site.id,customerName:$('#customerName').value,subService:$('#taskSelect').value,workerCount:Number($('#workerCount').value),scheduledDate:$('#scheduledDate').value,siteNote:$('#siteNote').value,memorySummary:(state.lastMemory?.results||[]).map(x=>x.text).join('\n')})});await refresh();activatePage('bookings');if(result.shortage)toast(`Only ${result.eligibleCount} workers meet current rules; ${result.shortage} more needed. Booking flagged for coordinator.`);else toast(`${result.booking.assignedWorkers.length} nearest eligible worker(s) assigned. Advance payment simulated.`)}catch(err){toast(err.message)}finally{btn.disabled=false;btn.textContent='Check crew & book'}});
-  function openCompletion(id){state.completionId=id;$('#outcomeNote').value='';$('#completeModal').classList.add('open')}
-  $('#completeConfirm').addEventListener('click',async()=>{const note=$('#outcomeNote').value.trim();if(!note)return toast('Add a short operational outcome first.');const btn=$('#completeConfirm');btn.disabled=true;btn.textContent='Saving outcome…';try{const d=await api(`/api/bookings/${encodeURIComponent(state.completionId)}/complete`,{method:'POST',body:JSON.stringify({outcomeNote:note})});$('#completeModal').classList.remove('open');await refresh();toast(d.message)}catch(err){toast(err.message)}finally{btn.disabled=false;btn.textContent='Complete & retain outcome'}});
-  $$('[data-close]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.close).classList.remove('open')));$$('.veil').forEach(v=>v.addEventListener('click',e=>{if(e.target===v)v.classList.remove('open')}));
-  $('#demoGuide').addEventListener('click',()=>$('#guideModal').classList.add('open'));
-  $('#resetDemo').addEventListener('click',async()=>{if(!confirm('Reset prototype bookings and local demo memory for this session? Hindsight records already retained in the configured bank are not deleted.'))return;try{await api('/api/demo/reset',{method:'POST',body:'{}'});state.lastMemory=null;await refresh();clearRecall();toast('Demo session reset. Existing Hindsight bank records were left untouched.')}catch(err){toast(err.message)}});
-  $('#resetMemories').addEventListener('click',async()=>{if(!confirm('Clear only the local demo memory for this session?'))return;try{await api('/api/demo/reset',{method:'POST',body:'{}'});state.lastMemory=null;await refresh();renderMemories();toast('Local demo memory cleared. Hindsight bank records are unchanged.')}catch(err){toast(err.message)}});
-  dateText();refresh();
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+
+  const state = {
+    services: {},
+    sites: [],
+    bookings: [],
+    workers: [],
+    selectedService: 'construction',
+    memoryStatus: { connected: false, mode: 'Demo memory' },
+    currentPlan: null,
+    coordinatorApproval: { action: 'accepted', note: '' },
+    completionId: null,
+    sessionMemories: []
+  };
+
+  const icons = {
+    star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>'
+  };
+
+  function toast(message) {
+    const el = $('#toast');
+    el.textContent = message;
+    el.classList.add('show');
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => el.classList.remove('show'), 3500);
+  }
+
+  async function api(path, options = {}) {
+    const response = await fetch(path, {
+      ...options,
+      headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }
+    });
+    const data = await response.json().catch(() => ({ error: 'Invalid response from server' }));
+    if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
+    return data;
+  }
+
+  function escapeHTML(v) {
+    return String(v ?? '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  function dateText() {
+    const d = new Date();
+    $('#today').textContent = new Intl.DateTimeFormat('en-IN', {
+      weekday: 'short', day: 'numeric', month: 'short', year: 'numeric'
+    }).format(d);
+    const min = new Date();
+    min.setDate(min.getDate() + 1);
+    $('#scheduledDate').min = min.toISOString().slice(0, 10);
+    const def = new Date();
+    def.setDate(def.getDate() + 2);
+    $('#scheduledDate').value = def.toISOString().slice(0, 10);
+  }
+
+  function activatePage(name) {
+    const title = {
+      dispatch: 'Booking desk',
+      bookings: 'Bookings register',
+      workers: 'Worker roster',
+      memory: 'Hindsight memory bank'
+    };
+    if (!title[name]) return;
+    $$('.page').forEach(p => p.classList.toggle('active', p.id === name));
+    $$('.nav button[data-page]').forEach(b => b.classList.toggle('active', b.dataset.page === name));
+    $('#crumb').textContent = title[name];
+    $('#side').classList.remove('open');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (name === 'workers') renderWorkers();
+    if (name === 'memory') renderMemories();
+  }
+
+  $$('[data-page]').forEach(b => b.addEventListener('click', () => activatePage(b.dataset.page)));
+  $('#mobileMenu').addEventListener('click', () => $('#side').classList.toggle('open'));
+
+  function serviceLabel(id) {
+    return state.services[id]?.name || id;
+  }
+
+  function siteSelected() {
+    return state.sites.find(s => s.id === $('#siteSelect').value);
+  }
+
+  function updateServiceChoice(service) {
+    state.selectedService = service;
+    $$('.service-option').forEach(b => {
+      const on = b.dataset.service === service;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+    renderSiteOptions();
+    renderTaskOptions();
+    updatePrice();
+    loadWorkers();
+    fetchAgentPlan();
+  }
+
+  function renderSiteOptions() {
+    const chosen = $('#siteSelect').value;
+    const sites = state.sites.filter(x => x.service === state.selectedService);
+    $('#siteSelect').innerHTML = sites.map(s => `<option value="${s.id}">${s.area} · ${s.id} (${s.label})</option>`).join('');
+    if (sites.some(s => s.id === chosen)) $('#siteSelect').value = chosen;
+  }
+
+  function renderTaskOptions() {
+    const service = state.services[state.selectedService];
+    $('#taskSelect').innerHTML = (service?.subservices || []).map(x =>
+      `<option ${x.toLowerCase().includes(state.selectedService === 'construction' ? 'tile work' : 'harvesting') ? 'selected' : ''}>${x}</option>`
+    ).join('');
+  }
+
+  function updatePrice() {
+    const service = state.services[state.selectedService];
+    if (!service) return;
+    const count = Number($('#workerCount').value || 3);
+    const total = service.rate * count;
+    const advance = Math.round(total * 30) / 100;
+    const balance = Math.round(total * 70) / 100;
+    $('#totalPrice').textContent = new Intl.NumberFormat('en-IN', {
+      style: 'currency', currency: 'INR', maximumFractionDigits: 0
+    }).format(total);
+    $('#advancePrice').textContent = `30% advance ₹${advance.toFixed(2)} · Balance ₹${balance.toFixed(2)}`;
+  }
+
+  // Live Agent Plan Generation
+  async function fetchAgentPlan() {
+    const site = siteSelected();
+    if (!site) return;
+
+    $('#agentConfidenceBadge').textContent = 'REASONING...';
+    $('#agentSummary').innerHTML = '<i>DayStart India AI Agent is consulting Hindsight memory bank for site experience...</i>';
+
+    try {
+      const data = await api('/api/agent/plan', {
+        method: 'POST',
+        body: JSON.stringify({
+          service: state.selectedService,
+          siteId: site.id,
+          customerName: $('#customerName').value,
+          subService: $('#taskSelect').value,
+          workerCount: Number($('#workerCount').value),
+          scheduledDate: $('#scheduledDate').value,
+          siteNote: $('#siteNote').value
+        })
+      });
+
+      renderAgentPlan(data.plan, data.recalledResults, data.reflection);
+    } catch (err) {
+      $('#agentSummary').textContent = `AI Agent Reasoning paused: ${err.message}`;
+      $('#agentConfidenceBadge').textContent = 'OFFLINE';
+    }
+  }
+
+  function renderAgentPlan(plan, recalledResults = [], reflection = '') {
+    state.currentPlan = plan;
+    state.coordinatorApproval = { action: 'accepted', note: '' };
+
+    const isMemoryInformed = plan.status === 'memory_informed';
+    const badge = $('#agentConfidenceBadge');
+    badge.textContent = plan.confidenceBadge;
+    badge.className = `tag ${isMemoryInformed ? 'green' : 'amber'}`;
+
+    $('#agentSummary').textContent = plan.summary;
+
+    // Recalled citations box
+    const recalledBox = $('#recalledBox');
+    if (plan.sources?.length) {
+      recalledBox.style.display = 'block';
+      $('#recalledCountTag').textContent = `${plan.sources.length} RECORD(S)`;
+      $('#recalledItemsList').innerHTML = plan.sources.map(s => `
+        <div class="recalled-item">
+          <p>${escapeHTML(s.snippet)}</p>
+          <span class="recalled-source">Source: ${escapeHTML(s.bookingId)} (${escapeHTML(s.date)})</span>
+        </div>
+      `).join('');
+    } else {
+      recalledBox.style.display = 'none';
+    }
+
+    // Actionable Recommendations
+    const recsList = $('#recommendationsList');
+    recsList.innerHTML = plan.recommendations.map((r, i) => `
+      <div class="rec-card">
+        <div class="rec-top">
+          <span class="rec-cat">${escapeHTML(r.category)}</span>
+          ${r.sourceBookingId ? `<span class="tag" style="font-size:8px">Source: ${escapeHTML(r.sourceBookingId)}</span>` : ''}
+        </div>
+        <div class="rec-action">${escapeHTML(r.action)}</div>
+        <div class="rec-reason"><b>Why:</b> ${escapeHTML(r.reason)}</div>
+      </div>
+    `).join('');
+
+    updateCoordinatorLabel();
+  }
+
+  function updateCoordinatorLabel() {
+    const label = $('#coordStatusLabel');
+    if (state.coordinatorApproval.action === 'accepted') {
+      label.innerHTML = '<span style="color:#236c4b">✓ COORDINATOR REVIEW: Agent Plan Accepted</span>';
+    } else if (state.coordinatorApproval.action === 'edited') {
+      label.innerHTML = `<span style="color:#663399">✎ COORDINATOR REVIEW: Directives Custom Edited</span>`;
+    } else {
+      label.innerHTML = '<span style="color:#986112">✕ COORDINATOR REVIEW: Memory Directives Ignored (Baseline Only)</span>';
+    }
+  }
+
+  $('#acceptPlanBtn').addEventListener('click', () => {
+    state.coordinatorApproval = { action: 'accepted', note: '' };
+    updateCoordinatorLabel();
+    toast('Agent operational plan approved. Directives will be attached to crew dispatch.');
+  });
+
+  $('#editPlanBtn').addEventListener('click', () => {
+    const currentDirectives = state.coordinatorApproval.note || (state.currentPlan?.recommendations || []).map(r => `[${r.category}] ${r.action}`).join('; ');
+    $('#customDirectiveText').value = currentDirectives;
+    $('#editModal').classList.add('open');
+  });
+
+  $('#saveEditBtn').addEventListener('click', () => {
+    const text = $('#customDirectiveText').value.trim();
+    state.coordinatorApproval = { action: 'edited', note: text };
+    updateCoordinatorLabel();
+    $('#editModal').classList.remove('open');
+    toast('Custom operational directives saved.');
+  });
+
+  $('#ignorePlanBtn').addEventListener('click', () => {
+    state.coordinatorApproval = { action: 'ignored', note: '' };
+    updateCoordinatorLabel();
+    toast('Memory directives ignored. Dispatching with standard customer note only.');
+  });
+
+  async function loadWorkers() {
+    const site = siteSelected();
+    if (!site) return;
+    try {
+      const data = await api(`/api/workers?service=${encodeURIComponent(state.selectedService)}&siteId=${encodeURIComponent(site.id)}`);
+      $('#poolTag').textContent = `${data.eligibleCount} ELIGIBLE`;
+      if (!data.workers.length) {
+        $('#workerPool').innerHTML = '<div class="empty">No workers currently meet all platform rules within 10 km.</div>';
+        return;
+      }
+      $('#workerPool').innerHTML = data.workers.slice(0, 5).map(w => `
+        <div class="worker-row">
+          <div class="worker-avatar">${escapeHTML(w.name.split(' ').map(x => x[0]).slice(0, 2).join(''))}</div>
+          <div>
+            <b>${escapeHTML(w.name)} <span style="color:#a27427">${icons.star} ${w.rating.toFixed(1)}</span></b>
+            <small>${escapeHTML(w.skill)} · ${escapeHTML(w.tier)}</small>
+          </div>
+          <span class="tag green">VERIFIED</span>
+          <span class="worker-distance">${w.distanceKm.toFixed(1)} km</span>
+        </div>
+      `).join('');
+    } catch (err) {
+      $('#workerPool').innerHTML = `<div class="empty">${escapeHTML(err.message)}</div>`;
+    }
+  }
+
+  function bookingRow(b) {
+    const statusText = b.status === 'needs_coordinator' ? 'Needs Coordinator' : b.status === 'assigned' ? 'Assigned' : 'Completed';
+    const crew = b.assignedWorkers?.length ? `${b.assignedWorkers.length}/${b.workerCount} assigned` : `0/${b.workerCount} assigned`;
+    const workerNames = (b.assignedWorkers || []).map(w => w.name).join(', ') || 'No workers assigned';
+    const action = b.status === 'assigned'
+      ? `<button class="btn tiny red" data-complete="${escapeHTML(b.id)}">Complete Job</button>`
+      : b.status === 'needs_coordinator'
+      ? '<span class="smallprint" style="color:var(--amber)">Worker shortage · Needs review</span>'
+      : '<span class="smallprint" style="color:var(--green)">✓ Outcome Retained</span>';
+
+    const planBadge = b.agentPlan?.status === 'memory_informed'
+      ? `<span class="tag purple" style="font-size:8px">🧠 Memory-Informed (${b.agentPlan.memoryCount} records)</span>`
+      : `<span class="tag amber" style="font-size:8px">⚡ Baseline Protocol</span>`;
+
+    const approvalBadge = `<span class="tag" style="font-size:8px">${b.coordinatorApproval?.action?.toUpperCase() || 'APPROVED'}</span>`;
+
+    return `
+      <div class="booking-row">
+        <div>
+          <b>${escapeHTML(b.customerName)} · ${escapeHTML(b.siteId)}</b>
+          <small>${escapeHTML(b.serviceName || serviceLabel(b.service))} · ${escapeHTML(b.subService)} · ${escapeHTML(b.scheduledDate)}</small>
+          <small style="display:block;margin-top:2px;color:#2c332e">${escapeHTML(workerNames)}</small>
+          <div style="margin-top:4px;display:flex;gap:5px;align-items:center">${planBadge} ${approvalBadge}</div>
+          ${b.dispatchInstruction ? `<div style="font-size:9px;color:#5a625d;margin-top:3px;line-height:1.3"><b>Dispatch Directives:</b> ${escapeHTML(b.dispatchInstruction.slice(0, 120))}${b.dispatchInstruction.length > 120 ? '...' : ''}</div>` : ''}
+        </div>
+        <div class="booking-meta">
+          <b>${crew}</b>
+          <small>${b.workerCount} requested</small>
+        </div>
+        <div class="booking-meta">
+          <b>₹${Number(b.totalPrice).toLocaleString('en-IN')}</b>
+          <small>Advance ₹${Number(b.advanceAmount).toFixed(2)}</small>
+        </div>
+        <div>
+          <span class="status ${b.status}">${statusText}</span>
+          <div class="row-actions" style="margin-top:6px">${action}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderBookings() {
+    const latest = $('#latestBookings');
+    const all = $('#allBookings');
+    const content = state.bookings.length
+      ? state.bookings.map(bookingRow).join('')
+      : '<div class="empty"><b>No bookings yet</b>Create a scheduled job to observe the workflow.</div>';
+
+    latest.innerHTML = content;
+    all.innerHTML = content;
+    $('#bookingNavCount').textContent = state.bookings.length;
+    $('#activeCount').textContent = state.bookings.filter(b => b.status === 'assigned').length;
+
+    $$('[data-complete]').forEach(b => b.addEventListener('click', () => openCompletion(b.dataset.complete)));
+  }
+
+  function renderWorkers() {
+    const filter = $('#workerFilter')?.value || 'all';
+    const ws = state.workers.filter(w => filter === 'all' || w.service === filter);
+    const good = state.workers.filter(w => w.verified && !w.suspended && w.rating >= 3 && w.online).length;
+    const excluded = state.workers.filter(w => !w.verified || w.suspended || w.rating < 3).length;
+
+    $('#agriRosterCount').textContent = state.workers.filter(w => w.service === 'agriculture').length;
+    $('#constructionRosterCount').textContent = state.workers.filter(w => w.service === 'construction').length;
+    $('#eligibleRosterCount').textContent = good;
+    $('#excludedRosterCount').textContent = excluded;
+
+    $('#allWorkers').innerHTML = ws.map(w => `
+      <div class="booking-row">
+        <div>
+          <b>${escapeHTML(w.name)} · ${escapeHTML(w.id)}</b>
+          <small>${escapeHTML(serviceLabel(w.service))} · ${escapeHTML(w.skill)} · ${escapeHTML(w.tier)}</small>
+        </div>
+        <div class="booking-meta">
+          <b class="rate">${icons.star} <span>${w.rating.toFixed(1)}</span></b>
+          <small>Rating</small>
+        </div>
+        <div class="booking-meta">
+          <span class="status ${w.online ? 'assigned' : 'cancelled'}">${w.online ? 'Online' : 'Offline'}</span>
+        </div>
+        <div>
+          ${w.verified && !w.suspended && w.rating >= 3
+            ? '<span class="tag green">ELIGIBLE</span>'
+            : '<span class="tag">EXCLUDED</span>'}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderMemories() {
+    const list = $('#memoryList');
+    const records = state.sessionMemories || [];
+    $('#memoryPageTag').textContent = state.memoryStatus.connected ? 'HINDSIGHT CONNECTED' : 'DEMO MODE';
+    $('#memoryPageSubtitle').textContent = state.memoryStatus.connected
+      ? 'Connected persistent Hindsight memory bank.'
+      : 'Local demo records (active fallback when Hindsight is offline).';
+
+    list.innerHTML = records.length
+      ? records.map(m => `
+        <div class="memory-log">
+          <div class="memory-log-head">
+            <b>${escapeHTML(serviceLabel(m.service))} · Site ${escapeHTML(m.siteId || '')}</b>
+            <span class="tag purple">${escapeHTML(m.source || 'Session record')}</span>
+          </div>
+          <p>${escapeHTML(m.content || '')}</p>
+          <small style="color:#818982;display:block;margin-top:4px">${escapeHTML(m.createdAt ? new Date(m.createdAt).toLocaleString('en-IN') : '')}</small>
+        </div>
+      `).join('')
+      : '<div class="empty"><b>No retained records in this session</b>Load sample history or complete a booking to retain an outcome.</div>';
+  }
+
+  async function refresh() {
+    try {
+      const d = await api('/api/state');
+      state.services = d.services;
+      state.sites = d.sites;
+      state.bookings = d.bookings;
+      state.workers = d.workers;
+      state.memoryStatus = d.memoryStatus;
+      state.sessionMemories = d.memories || [];
+
+      const status = $('#memoryStatus');
+      status.classList.toggle('connected', d.memoryStatus.connected);
+      status.querySelector('span').textContent = d.memoryStatus.connected ? 'Hindsight connected' : 'Demo memory';
+      $('#memoryModeTag').textContent = d.memoryStatus.connected ? 'HINDSIGHT' : 'DEMO MEMORY';
+
+      $('#retainedMemoryCount').textContent = (d.memories || []).length;
+      $('#memoryStatusNote').textContent = d.memoryStatus.connected ? 'Persistent Hindsight Bank' : 'Local Fallback Memory';
+
+      $('#workerCount').innerHTML = Array.from({ length: 20 }, (_, i) =>
+        `<option value="${i + 1}" ${i === 2 ? 'selected' : ''}>${i + 1} worker${i === 0 ? '' : 's'}</option>`
+      ).join('');
+
+      $('#onlineCount').textContent = state.workers.filter(w => w.online && w.verified && !w.suspended && w.rating >= 3).length;
+
+      renderSiteOptions();
+      renderTaskOptions();
+      renderBookings();
+      updatePrice();
+      await loadWorkers();
+      await fetchAgentPlan();
+    } catch (err) {
+      toast(`Could not load DayStart India: ${err.message}`);
+    }
+  }
+
+  $$('.service-option').forEach(b => b.addEventListener('click', () => updateServiceChoice(b.dataset.service)));
+
+  $('#siteSelect').addEventListener('change', () => {
+    loadWorkers();
+    fetchAgentPlan();
+  });
+  $('#taskSelect').addEventListener('change', fetchAgentPlan);
+  $('#workerCount').addEventListener('change', () => {
+    updatePrice();
+    fetchAgentPlan();
+  });
+  $('#customerName').addEventListener('input', () => {
+    clearTimeout(window.custTimer);
+    window.custTimer = setTimeout(fetchAgentPlan, 400);
+  });
+  $('#siteNote').addEventListener('input', () => {
+    clearTimeout(window.noteTimer);
+    window.noteTimer = setTimeout(fetchAgentPlan, 400);
+  });
+  $('#workerFilter').addEventListener('change', renderWorkers);
+
+  $('#recallBtn').addEventListener('click', async () => {
+    toast('Querying Hindsight memory bank...');
+    await fetchAgentPlan();
+    toast('AI Agent operational plan refreshed.');
+  });
+
+  $('#seedMemoryBtn').addEventListener('click', async () => {
+    const btn = $('#seedMemoryBtn');
+    btn.disabled = true;
+    btn.textContent = 'Loading 8 records...';
+    try {
+      const d = await api('/api/demo/seed-memory', { method: 'POST', body: '{}' });
+      toast(d.message);
+      await refresh();
+    } catch (err) {
+      toast(err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '⚡ Load 8 Synthetic Prior-Job Records';
+    }
+  });
+
+  $('#clearMemoryBtn').addEventListener('click', async () => {
+    try {
+      await api('/api/demo/reset', { method: 'POST', body: '{}' });
+      toast('Memory baseline cleared. The agent will now show a Baseline Operational Plan.');
+      await refresh();
+    } catch (err) {
+      toast(err.message);
+    }
+  });
+
+  // Create booking
+  $('#createBooking').addEventListener('click', async () => {
+    const site = siteSelected();
+    const btn = $('#createBooking');
+    btn.disabled = true;
+    btn.textContent = 'Checking availability & dispatching...';
+
+    try {
+      const result = await api('/api/bookings', {
+        method: 'POST',
+        body: JSON.stringify({
+          service: state.selectedService,
+          siteId: site.id,
+          customerName: $('#customerName').value,
+          subService: $('#taskSelect').value,
+          workerCount: Number($('#workerCount').value),
+          scheduledDate: $('#scheduledDate').value,
+          siteNote: $('#siteNote').value,
+          agentPlan: state.currentPlan,
+          coordinatorApproval: state.coordinatorApproval
+        })
+      });
+
+      await refresh();
+      activatePage('bookings');
+
+      if (result.shortage) {
+        toast(`Only ${result.eligibleCount} workers meet rules; shortage of ${result.shortage}. Flagged for coordinator.`);
+      } else {
+        toast(`${result.booking.assignedWorkers.length} nearest eligible worker(s) assigned. Directives dispatched.`);
+      }
+    } catch (err) {
+      toast(err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Confirm Crew & Dispatch Booking';
+    }
+  });
+
+  function openCompletion(id) {
+    state.completionId = id;
+    const booking = state.bookings.find(b => b.id === id);
+    $('#outcomeNote').value = booking?.service === 'construction'
+      ? 'West gate entry worked smoothly. Materials were pre-staged by 8:30 AM. Tile work completed on schedule.'
+      : '6:00 AM early dispatch completed harvest before midday heat. Irrigation pump valve operated smoothly.';
+    $('#completeModal').classList.add('open');
+  }
+
+  $('#completeConfirm').addEventListener('click', async () => {
+    const note = $('#outcomeNote').value.trim();
+    if (!note) return toast('Please enter an operational outcome.');
+    const btn = $('#completeConfirm');
+    btn.disabled = true;
+    btn.textContent = 'Retaining in Hindsight...';
+
+    try {
+      const d = await api(`/api/bookings/${encodeURIComponent(state.completionId)}/complete`, {
+        method: 'POST',
+        body: JSON.stringify({ outcomeNote: note })
+      });
+      $('#completeModal').classList.remove('open');
+      await refresh();
+      toast(d.message);
+    } catch (err) {
+      toast(err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Complete & Retain in Hindsight';
+    }
+  });
+
+  $$('[data-close]').forEach(b => b.addEventListener('click', () => $('#' + b.dataset.close).classList.remove('open')));
+  $$('.veil').forEach(v => v.addEventListener('click', e => { if (e.target === v) v.classList.remove('open'); }));
+
+  $('#demoGuide').addEventListener('click', () => $('#guideModal').classList.add('open'));
+  $('#resetDemo').addEventListener('click', async () => {
+    if (!confirm('Reset demo session bookings and local memory? Existing Hindsight bank records will remain intact.')) return;
+    try {
+      await api('/api/demo/reset', { method: 'POST', body: '{}' });
+      await refresh();
+      toast('Demo session reset.');
+    } catch (err) {
+      toast(err.message);
+    }
+  });
+  $('#resetMemories').addEventListener('click', async () => {
+    try {
+      await api('/api/demo/reset', { method: 'POST', body: '{}' });
+      await refresh();
+      toast('Memory session reset.');
+    } catch (err) {
+      toast(err.message);
+    }
+  });
+
+  dateText();
+  refresh();
 </script>
 </body>
 </html>

@@ -1,84 +1,87 @@
-# DayStart Agriculture and Construction MVP
+# DayStart India — Agriculture and Construction AI Agent MVP
 
 ## Product objective
 
-Let an Agriculture or Construction customer schedule a 1–20 person crew for a job at least one day ahead, while helping DayStart coordinators use verified workforce capacity and relevant prior site history to prepare repeat bookings.
+Empower Agriculture and Construction customers in Hyderabad to schedule 1–20 person crews at least one day ahead, while the **DayStart India AI Agent** uses **Hindsight persistent memory** to recall prior site conditions, access routes, staging timelines, and safety directives, helping operations coordinators prepare intelligent repeat bookings.
 
 ## Primary users
 
-- **Customer:** a farmer, farm operator, contractor, or site coordinator booking scheduled labour.
-- **DayStart coordinator:** confirms booking details, reviews available workers, resolves shortages, and records job outcomes.
-- **Worker:** a directly employed worker whose service, skill, verification, availability, rating, and active assignment affect eligibility.
+- **Customer:** a farmer, farm operator, contractor, or builder scheduling daily workforce crews.
+- **DayStart India Coordinator:** reviews agent-generated operational plans, accepts/edits directives, resolves shortages, and records job completion outcomes.
+- **Worker:** a directly employed workforce member whose verified status, online availability, platform rating (≥ 3.0), and 10 km proximity deterministically govern eligibility.
 
-## MVP workflow
+## MVP AI Agent Workflow
 
-1. Choose Agriculture or Construction.
-2. Select a supported task, operating area/site, date, and crew size from 1–20.
-3. Enter a business/customer label and optional operational site instruction.
-4. Ask Hindsight for relevant history scoped to the selected service and site. Display any retrieved fact with its source booking and date. The coordinator can use or ignore it.
-5. Calculate the quoted total at the configured per-worker daily rate. Show the 30% advance and 70% balance. The prototype labels the payment as simulated.
-6. Find workers using current platform data: matching category, verified, online, not suspended, not already on an active job, rating at least 3.0, and within 10 km. Sort nearest first.
-7. Assign the full requested crew when enough eligible workers exist. Otherwise flag the booking for coordinator action and show the shortage.
-8. Let the coordinator complete the demo job and record a non-sensitive outcome. Retain the dated outcome in Hindsight with a source booking ID and site/service tags.
-9. Create a repeat booking at that site and show how the recalled context changes the booking preparation.
+```
+Customer Booking Request
+        ↓
+DayStart India AI Agent
+        ↓
+Hindsight Persistent Memory Retrieval (Recall & Reflect)
+        ↓
+Operational Context Reasoning (Access, Timing, Materials, Safety)
+        ↓
+Memory-Informed Operational Plan (with Source Citations)
+        ↓
+Coordinator Approval [✓ Accept Plan] [✎ Edit] [✕ Ignore]
+        ↓
+Deterministic Worker Eligibility Engine (10 km Proximity Sort)
+        ↓
+Crew Assignment (Nearest verified workers)
+        ↓
+Job Completion & Operational Review
+        ↓
+Automated Privacy Sanitization
+        ↓
+Hindsight Retain (Stored for future repeat bookings)
+```
 
-## Service catalogue
+1. **Category Selection:** Customer chooses strictly **Agriculture** or **Construction**.
+2. **Parameters:** Selects task, site/operating area, date (at least 1 day ahead), and crew count (1–20).
+3. **Agent Reasoning:** The DayStart India AI Agent queries Hindsight memory using scoped tags (`service`, `site`).
+   - **Baseline (Before Memory):** Generates standard generic verification protocol when no historical records exist.
+   - **Memory-Informed (After Memory):** Synthesizes specific, actionable directives (gate entry, arrival timing, material readiness, safety) with source citations from prior booking IDs.
+4. **Coordinator Review:** The coordinator has operational authority: 1-click **Accept**, **Edit**, or **Ignore**.
+5. **Pricing & Advance:** 30% advance and 70% balance calculated transparently at standard per-worker daily rates (simulated prototype payment).
+6. **Strictly Deterministic Eligibility:** Verified === true, online === true, rating ≥ 3.0, not suspended, no active booking, distance ≤ 10 km.
+7. **Proximity Assignment:** Nearest eligible workers assigned up to requested crew count; shortages trigger immediate coordinator alert.
+8. **Completion & Retain:** Coordinator inputs operational outcome; the privacy engine strips PII and retains the record in Hindsight.
 
-The MVP exposes only these two services. No other category should appear in navigation, selection, demo data, pricing, or sample copy.
+## Service Catalogue
 
-| Service | Example tasks | Scheduling | Rate in the PRD |
+| Service | Example tasks | Scheduling | Rate |
 |---|---|---|---:|
-| Agriculture | Plowing, planting, harvesting, irrigation, weeding, spraying, land leveling, crop cutting | At least one day ahead; 1–20 workers | ₹699 per worker per day |
-| Construction | Masonry, tile work, plastering, painting, demolition, flooring, roofing, daily labour | At least one day ahead; 1–20 workers | ₹849 per worker per day |
+| Agriculture | Field plowing, seed planting, harvesting, irrigation work, weeding, fertilizer spraying, land leveling, crop cutting | At least 1 day ahead; 1–20 workers | ₹699 / worker / day |
+| Construction | Masonry, tile work, plastering, painting, demolition, daily labour, flooring, roofing | At least 1 day ahead; 1–20 workers | ₹849 / worker / day |
 
-These rates are prototype defaults from the PRD and should be treated as configurable assumptions until confirmed.
+## Hindsight Memory Contract
 
-## Hindsight memory contract
+### Store (Retain)
+Captures safe operational outcomes post-job review:
+- Service category, task, and pseudonymous site ID (`KOM-17`, `SHM-04`, `MED-09`, `CHE-12`).
+- Event timestamp and source booking ID (`DS-XXXX`).
+- Non-sensitive gate access, staging requirements, crop conditions, or safety observations.
+- Automatic scrubbing of emails, phone numbers, Aadhaar, PAN, and credentials.
 
-### Store
+### Retrieve and Reason (Recall & Reflect)
+- Uses official `@vectorize-io/hindsight-client` with strict tag scoping (`service:construction`, `site:KOM-17`).
+- Formulates multi-job synthesized reflections when multiple historical records exist.
+- Gracefully falls back to local demo memory when the Hindsight server is unreachable.
 
-Store a short operational event after a coordinator reviews a completed booking. Include:
+### Decision Boundary Guardrail
+- **Hindsight informs operational preparation only.**
+- **Hindsight NEVER determines, modifies, ranks, or overrides worker eligibility, wages, or assignment.**
+- Stale or conflicting historical advice is resolved by the human coordinator.
 
-- Service category and task.
-- Pseudonymous site ID, not a full home address.
-- Event timestamp and source booking ID.
-- Non-sensitive site access, crop/field condition, or job outcome note.
-- Crew size only when it provides useful task context.
+## Acceptance Criteria
 
-Exclude Aadhaar and other identity documents, phone numbers, payment details, exact home addresses, and sensitive worker-performance judgements. Scrub personal contact data from free-text notes before retention.
-
-### Retrieve and reason
-
-Use Hindsight’s official JavaScript client from the server, never directly from the browser. Recall with the service and site tags so one service or site does not influence another. Use `reflect` to summarize relevant history when available, and return the source facts alongside the summary. Handle empty results and Hindsight failures without inventing remembered facts.
-
-### Decision boundary
-
-Hindsight can suggest what a coordinator should verify, such as a previously locked gate or an arrival-time request. It must not determine worker eligibility, ranking, assignment, wage, or suspension. Current booking and workforce records drive those decisions. A coordinator resolves stale, contradictory, or safety-sensitive context.
-
-## Prototype acceptance criteria
-
-- The service picker contains exactly Agriculture and Construction.
-- Both booking forms support scheduled dates at least one day in the future and crew counts from 1 to 20.
-- Price, 30% advance, and 70% balance recalculate when the service or crew count changes.
-- Worker selection is limited to the PRD eligibility rules and 10 km radius; matches are distance ordered.
-- The booking is fully assigned only when enough eligible workers are available; otherwise it is visibly escalated to the coordinator.
-- The coordinator can complete a synthetic booking with an operational note.
-- Hindsight retain, recall, and reflect calls are made by the server when a Hindsight endpoint is configured.
-- The UI clearly distinguishes Hindsight results from local demo fallback memory.
-- Every recalled item displays source information when provided; an empty result says that no matching history was found.
-- Payment is labelled simulated. The prototype does not claim to perform real OTP, payment, SMS, live GPS, payroll, or production authentication.
-
-## Out of scope for this hackathon MVP
-
-- Beauty, driver, or any service beyond Agriculture and Construction.
-- Native Android/iOS applications.
-- Real payment gateway, OTP/SMS gateway, identity document upload, or payroll transfer.
-- Continuous worker GPS tracking and production WebSockets.
-- Production database, multi-city scale, insurance, and B2B self-serve portal.
-- Automated AI worker selection, worker rating, disciplinary decisions, or automatic suspension.
-
-## Demo plan
-
-Use a synthetic Construction site `KOM-17` and a repeat tile-work job. First load a prior-job event into the configured Hindsight bank and recall it for the site. Show the dated site-access note and source. Then create a three-worker booking, show the ₹2,547 quote, ₹764.10 simulated advance, and the nearest eligible workers. Complete the booking with a new site outcome and retain it. Recall again to show both the old and new evidence, then explain that the coordinator confirms current conditions and the normal assignment algorithm remains in control.
-
-For the recorded video, keep the sequence short: problem, first booking with no memory, retained event, repeat booking with actual Hindsight recall/reflect, and one clear lesson. The local fallback mode is suitable for UI development only; the final judged demo should show the connected Hindsight status and actual Hindsight operations.
+- [x] Service picker strictly limited to Agriculture and Construction.
+- [x] Dates enforce minimum 1-day advance scheduling; crew sizes 1–20.
+- [x] Price, 30% advance, and 70% balance recalculate dynamically.
+- [x] AI Agent generates distinct **Baseline (Generic)** vs **Memory-Informed** plans based on Hindsight memory count.
+- [x] Recommendations include category, action, reason, and source booking citation.
+- [x] Coordinator review toolbar provides 1-click Accept, Edit, and Ignore actions.
+- [x] Worker eligibility strictly adheres to platform deterministic rules; memory cannot make an ineligible worker eligible.
+- [x] Job completion sanitizes PII and retains outcomes in Hindsight.
+- [x] 8 synthetic historical records provided for multi-site demo testing.
+- [x] Unit and end-to-end integration test suites pass completely (`npm test`).

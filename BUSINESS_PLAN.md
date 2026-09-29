@@ -1,4 +1,4 @@
-# DayStart Business Plan
+# DayStart India — Business Plan
 
 ## Executive summary
 
@@ -52,6 +52,18 @@ The workflow is:
 This makes memory visible in a real workflow: the same booking is generic before relevant history is available and more context-aware after a completed job has been retained. Memory can reduce missed site instructions and repeated coordination, while the booking and dispatch engine remains predictable.
 
 The demo must use the real Hindsight client and show actual retain, recall, and reflect calls. The local memory fallback in the prototype is clearly labelled as demo memory; it is useful for development but is not evidence of Hindsight integration. Do not put Aadhaar numbers, phone numbers, payment information, exact home addresses, or sensitive worker evaluations into Hindsight. Keep operational notes tied to a source record and confirm them before reuse.
+
+## Hackathon positioning
+
+Position the project as **DayStart India — Memory-Aware Workforce Coordination Agent: a daily-workforce coordination platform that learns site context from completed Agriculture and Construction jobs**. This gives the judges a specific business workflow, a clear role for Hindsight, and a concise before/after story.
+
+- **Innovation (30%):** persistent operational context is embedded in a real job booking and repeat-service workflow, rather than presented as a general-purpose chatbot.
+- **Hindsight use (25%):** show actual retain, recall, and reflect calls; include source records; compare a first booking with a repeat booking that has relevant history.
+- **Technical implementation (20%):** demonstrate validated scheduling and pricing, full-crew availability, distance-sorted assignment, shortage handling, and errors when memory is unavailable.
+- **User experience (15%):** keep the coordinator’s flow focused and make it easy to inspect why a site note appeared.
+- **Real-world impact (10%):** measure completed bookings, assignment time, repeat demand, worker pay timeliness, and coordinator-confirmed usefulness of recalled notes.
+
+Do not claim a benchmark, worker outcome, adoption level, or financial result until the team has measured it. The story can be compelling without invented performance claims.
 
 ## Revenue model and unit economics
 

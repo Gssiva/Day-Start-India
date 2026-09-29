@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "DayStart Agriculture and Construction booking prototype with Hindsight memory.",
+  "description": "DayStart India — Memory-Aware Workforce Coordination Agent with persistent Hindsight memory.",
   "scripts": {
-    "start": "node server.mjs"
+    "start": "node server.mjs",
+    "test": "node test-agent.mjs && node test-e2e.mjs"
   },
   "engines": {
     "node": ">=18"
